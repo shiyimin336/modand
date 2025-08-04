@@ -260,24 +260,6 @@ button:focus { outline: none; }
 
 textarea { height: 168px; }
 
-.cd-hero-slider.small-screen { height: 100%; }
-
-.tm-navbar {
-	position: absolute;
-    right: 20px;
-    top: 44px;
-}
-
-.cd-slider-nav .navbar-nav { background-color: rgba(255,255,255,0.7); }
-
-.cd-slider-nav a, 
-.navbar-nav .nav-link { height: 50px; }
-
-.tm-brand-icon { 
-	font-size: 3rem;
-	padding: 10px;
-}
-
 .cd-hero-slider .cd-full-width { text-align: left; }
 .cd-full-width .container-fluid { margin-top: -80px; }
 
