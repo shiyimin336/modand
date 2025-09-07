@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文件下载</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="fontawesome/css/all.min.css">
+    <link rel="shortcut icon" type="img" href="img/logo.ico">
+    <style type="text/css">
+
+      @font-face {
+        font-family: 'Roboto';
+        font-weight: normal;
+        font-style: normal;
+        src: local('Roboto'), local('Roboto-Regular'), url('template/fonts/Roboto-Regular.woff') format('woff');
+      }
+      @font-face {
+        font-family: 'Roboto';
+        font-weight: bold;
+        font-style: normal;
+        src: url('template/fonts/Roboto-Bold.woff') format('woff');
+        src: local('Roboto Bold'), local('Roboto-Bold'), url('template/fonts/Roboto-Bold.woff') format('woff');        
+      }
+      @font-face {
+        font-family: 'Oswald';
+        font-weight: normal;
+        font-style: normal;
+        src: url('template/fonts/Oswald-Regular.woff') format('woff');
+      }
+      @font-face {
+        font-family: 'Oswald';
+        font-weight: bold;
+        font-style: normal;
+        src: url('template/fonts/Oswald-Medium.woff') format('woff');
+      }
+      body {
+        font-family:'Roboto', arial, helvetica, sans-serif;
+        font-weight: normal;
+        font-style: normal;
+        font-size: medium;
+        background-image:url('images/hero.jpg');
+      }
+      A {
+        color: #5168CF; 
+        text-decoration: none; 
+      }    
+      h2 {
+        margin-bottom: 0.3em
+      }
+      .tableRoot {
+        margin: 0 auto; 
+        min-width: 850px; 
+        background-color: white; 
+        box-shadow: 0px 0px 20px #CCCCCC;
+        border: 0px solid #808080;
+        /* Use border-spacing instead of border-collapse, otherwise IE doesn't show the shadow */
+        border-spacing:0;
+      }
+      .header {
+        background-color: #313E7C;
+        padding-bottom: 0.32em;
+      }
+      .headerTitle {
+        font-family:'Oswald', arial, helvetica, sans-serif;
+        font-size:300%; 
+        font-weight:bold; 
+        padding-left: 20px;
+        padding-right: 40px;
+        line-height: 1.3em;
+      }
+      .headerTitle A {
+        color: #F0F3FF; 
+        text-decoration: none;
+      }
+      .headerNav {
+        text-align: left; 
+        background-color: #313E7C;
+        border-width: 0px;
+        margin-left: 0px
+      }
+      .headerNav A {
+        color: #F0F3FF; 
+        text-decoration: none;
+        padding-left: 1em;
+        padding-right: 1em;
+        padding-top: 0.3em;
+        padding-bottom: 0.3em;
+      }
+      .headerNav A:hover {
+        background-color: #6974A3;
+        transition: .25s;
+        text-decoration: none;
+      }
+      .content {
+        padding: 18px;
+        padding-top: 10px; 
+        text-align: left; 
+        text-indent: 0px; 
+        margin: 10px;
+      }
+      .content A:hover {
+      }
+      .footer {
+        font-size:small; 
+        text-align: right;  
+        background-color: #313E7C; 
+        padding-left: 0.3em;
+        padding-right: 0.3em;
+        padding-top: 0.5em;
+        padding-bottom: 0.5em;
+      }
+      .footerIcon {
+      }
+      .footerIcon IMG {
+        margin-bottom: -0.3em;
+        margin-right: 0.7em;
+        width: 1.2em;
+        height: 1.2em;
+      }
+      .footerText A {
+        text-decoration: none;
+        padding-left: 0.7em; 
+        padding-right: 0.7em;
+        padding-top: 0.2em;
+        padding-bottom: 0.2em;
+        color: #F0F3FF;
+      }
+      .footerText A:hover {
+        text-decoration: none;
+        background-color: #6974A3;
+        transition: .25s;
+        color: #F0F3FF;
+      }
+      .downloads {
+        width: 100%
+      }
+      .spoilerLink {
+        line-height: 200%;
+      }
+      .showAll {
+        text-align: center;
+        margin-top: 2em;
+      }
+      .downloadTable {
+        border-collapse: collapse;
+        width: auto;
+        line-height: 200%;
+      }
+      .downloadLine {
+      }
+      /* Columns */
+      .downloadLine .colFile {
+        width: 270px;
+        padding-left: 10px;
+      }
+      .downloadLine .colDownload A,
+      .downloadButton A {
+        width: 80px;
+        text-align: center;
+        padding-left: 1em;
+        padding-right: 1em;
+        padding-top: 0.2em;
+        padding-bottom: 0.2em;
+        border: 1px solid #5168CF;
+      }
+      .downloadLine .colMirror {
+        width: 100px; 
+        text-align: center;
+      }
+      .downloadLine .colChangelog {
+        width: 110px;
+      }
+      .downloadLine .colForge {
+        width: 115px;
+      }
+      .downloadLine .colDate {
+        width: 80px;
+        text-align: right;
+        padding-right: 10px;
+      }
+      /* Preview */
+      .downloadLinePreview {
+        background-color: #FFF6E3
+      }
+      /* Main */
+      .downloadLineMain:first-child {
+        background-color: #F0F3FF
+      }
+      .downloadLineMain:first-child .colDownload  A, 
+      .downloadButton A{
+        font-weight: normal;
+        color: white;
+        background-color: #313E7C;
+        border: 1px solid #313E7C;
+      }
+      .downloadLineMain:first-child .colDownload A:hover,
+      .downloadButton A:hover{
+        background-color: #6974A3;
+        transition: .25s;
+      }
+      LI STRONG {
+        line-height: 200%;
+      }
+      .tableDownload {
+        margin: 0 auto; 
+      }
+      .tableDonate TR {
+        height: 35px;
+      }
+      .scaleNearest {  
+        image-rendering:optimizeSpeed;             /* Legal fallback                 */
+        image-rendering:-moz-crisp-edges;          /* Firefox                        */
+        image-rendering:-o-crisp-edges;            /* Opera                          */
+        image-rendering:-webkit-optimize-contrast; /* Chrome (and eventually Safari) */
+        image-rendering:optimize-contrast;         /* CSS3 Proposed                  */
+        -ms-interpolation-mode:nearest-neighbor;   /* IE8+                           */
+        image-rendering:pixelated;                 /* Chrome 41+, Firefox            */
+      }
+      .tableData {
+        border-collapse: collapse;
+      }
+      .tableData th {
+        color: #F0F3FF;
+        background-color: #313E7C;
+        font-weight: normal;
+      }
+      .tableData, .tableData th, .tableData td {
+        border: 0px solid black;
+      }
+      .tableData th, .tableData td {
+        padding-left:10px;
+        padding-right:10px;
+        padding-top:5px;
+        padding-bottom:5px;
+      }
+      .tableDataDis {
+        background-color: #DCDCDC
+      }
+      .tableDataIcon {
+        width: 1.5em;
+        height: 1.5em;
+      }
+      .tableDataCape {
+        max-height: 44px;
+      }
+      .tableDataCentered {
+        text-align: center;
+      }
+      .tableBanner {
+        width: 100%;
+        padding: 8px;
+      }
+      .tableBanner TR {
+        text-align: center;
+        margin: 0.3em;
+      }
+      .tableBanner TD {
+        padding-top: 1em;
+      }
+      .tableBanner IMG {
+        border: 1px solid #f0f0f0;
+      }
+      .tableBanner TD * {
+        margin: 0.3em;
+      }
+      .tableBanners TR TD {
+        padding: 9px;
+        padding-right: 8px;
+      }
+      .tableBanners IMG {
+        border: 1px solid #f0f0f0;
+      }
+      .bannerSelTable {
+        width: 100%;
+      }
+      .bannerSelUser {
+        text-align: right;
+      }
+      .bannerNav {
+        text-align: center;
+      }
+      .bannerNav * {
+        margin: 0.3em;
+      }
+      TD .tableDataEditable {
+        background-color: #FFF6E3;
+        border: 2px solid transparent;
+      }
+      input,
+      select {
+        font-family:'Roboto', arial, helvetica, sans-serif;
+        font-weight: normal;
+        font-style: normal;
+        font-size: medium;
+        padding: 2px;
+      }
+      input[type=submit] {
+        padding-left: 1em;
+        padding-right: 1em;
+        padding-top: 0.2em;
+        padding-bottom: 0.2em;
+      }
+      input[type=checkbox] {
+        transform : scale(1.3);
+      }
+    </style>
+</head>
+  <body>
+    <table class="tableRoot">
+      <tr>
+        <td class="header">
+          <!-- Title -->
+          <span class="headerTitle">
+            <a href="home"></a>
+          </span>
+          <!-- Navigation -->
+          <span class="headerNav">
+            <a href="index.html">返回</a>
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <td class="content">
+
+          <!-- Content -->
+<span class="downloads">
+          <script type='text/javascript'>
+            function showSpoiler(elemId, linkId, hideLink)
+            {
+              var elem = document.getElementById(elemId);
+              var link = document.getElementById(linkId);
+              if (elem.style.position == 'absolute')
+              {
+                elem.style.position = 'static';
+                elem.style.visibility = 'visible';
+                elem.style.opacity = '1';
+                link.innerHTML = link.innerHTML.replace("+", "-");
+              }
+              else
+              {
+                elem.style.position = 'absolute';
+                elem.style.visibility = 'hidden';
+                elem.style.opacity = '0';
+                link.innerHTML = link.innerHTML.replace("-", "+");
+              }
+              if(hideLink)
+                link.innerHTML = ("");
+            }
+          </script>
+          
+          <h3>Minecraft Modpack-TF 1.16</h3>
+            <!-- Previews -->
+              <a class="spoilerLink" id="link1" href="javascript:showSpoiler('preview1', 'link1');">+查看所有</a>
+                <div id="preview1" style='position: absolute; visibility: hidden; opacity: 0; transition: opacity 0.5s;'>
+                  <table class='downloadTable'>
+                    <tr class='downloadLine downloadLinePreview'>
+                        <td class='colFile'>Modpack v1.0</td>
+                        <td class='colDownload'><a href="  ">仅提供</a></td>
+                        <td class='colDate'></td>
+                      </tr>
+                    <tr class='downloadLine downloadLinePreview'>
+                        <td class='colFile'>Modpack v1.1</td>
+                        <td class='colDownload'><a href="  ">仅提供</a></td>
+                        <td class='colDate'></td>
+                      </tr>
+                    <tr class='downloadLine downloadLinePreview'>
+                        <td class='colFile'>Modpack v1.2</td>
+                        <td class='colDownload'><a href="  ">仅提供</a></td>
+                        <td class='colDate'></td>
+                      </tr>
+                    <tr class='downloadLine downloadLinePreview'>
+                        <td class='colFile'>Modpack v1.3</td>
+                        <td class='colDownload'><a href="  ">仅提供</a></td>
+                        <td class='colDate'></td>
+                      </tr>
+                    <tr class='downloadLine downloadLinePreview'>
+                        <td class='colFile'>Modpack v1.3a</td>
+                        <td class='colDownload'><a href="  ">仅提供</a></td>
+                        <td class='colDate'></td>
+                      </tr>
+                    <tr class='downloadLine downloadLinePreview'>
+                        <td class='colFile'>Modpack v1.3b</td>
+                        <td class='colDownload'><a href="  ">仅提供</a></td>
+                        <td class='colDate'></td>
+                      </tr>
+                    <tr class='downloadLine downloadLinePreview'>
+                        <td class='colFile'>Modpack v1.3c</td>
+                        <td class='colDownload'><a href="  ">仅提供</a></td>
+                        <td class='colDate'></td>
+                      </tr> 
+                     </table>
+                </div>
+              <!-- Version -->
+              <table class='downloadTable mainTable'>
+                <tr class='downloadLine downloadLineMain'>
+                    <table class='downloadTable mainTable'>
+                    <tr class='downloadLine downloadLineMain'>
+                        <td class='colFile'>Modpack v1.4 (最新)</td>
+                        <td class='colDownload'><a href="https://cloud.189.cn/t/nuyQ3iMBnm2y（访问码：q9ep）">下载</a></td>
+                        <td class='colDownload'><a href='https://www.123912.com/s/R3fBTd-DrTFh'>下载(123)</a></td>
+                        <td class='colDate'></td>
+                  </tr>
+                    </table>            
+          <h3>Minecraft Modpack-TF 1.18</h3>
+            <!-- Previews -->
+              <a class="spoilerLink" id="link2" href="javascript:showSpoiler('preview2', 'link2');">+查看所有</a>
+                <div id="preview2" style='position: absolute; visibility: hidden; opacity: 0; transition: opacity 0.5s;'>
+                  <table class='downloadTable'>
+                    <tr class='downloadLine downloadLinePreview'>
+                        <td class='colFile'>Modpack v1.0</td>
+                        <td class='colDownload'><a href="  ">仅提供</a></td>
+                        <td class='colDate'></td>
+                      </tr>
+                    <tr class='downloadLine downloadLinePreview'>
+                        <td class='colFile'>Modpack v1.1</td>
+                        <td class='colDownload'><a href="  ">仅提供</a></td>
+                        <td class='colDate'></td>
+                      </tr>
+                    </table>
+                </div>
