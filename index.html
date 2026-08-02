@@ -51,9 +51,10 @@ h1,h2,h3,h4,h5,h6,.header-text h2{
     color: #ffffff !important;
     font-weight: 400;
 }
+/* 移除hover变色，鼠标悬浮文字保持原色 */
 .main-nav .nav > li > a:hover,
 .main-nav .nav > li > a.active {
-    color: #70b8ff !important;
+    color: #ffffff !important;
 }
 .sub-menu {
     background-color: #151a28 !important;
@@ -62,8 +63,9 @@ h1,h2,h3,h4,h5,h6,.header-text h2{
     color: #dddddd !important;
     font-weight: 300;
 }
+/* 下拉菜单hover不改变文字颜色，仅保留背景变化 */
 .sub-menu li a:hover {
-    color: #70b8ff !important;
+    color: #dddddd !important;
     background-color: #22293b !important;
 }
 footer {
@@ -74,11 +76,12 @@ footer p {
     color: #ccc !important;
     font-weight:300;
 }
+/* 页脚链接固定颜色，hover不变色 */
 footer p a {
-    color: #70b8ff !important;
+    color: #ccc !important;
 }
 footer p a:hover {
-    color: #ffffff !important;
+    color: #ccc !important;
 }
 
 /* ========== 取消强制大写 ========== */
@@ -134,16 +137,30 @@ html.light-mode .header-area{
 html.light-mode .main-nav .nav > li > a{
     color:#222 !important;
 }
+/* 浅色导航 hover 文字不变色 */
+html.light-mode .main-nav .nav > li > a:hover,
+html.light-mode .main-nav > li > a.active {
+    color:#222 !important;
+}
 html.light-mode .sub-menu{
     background:#fff !important;
 }
 html.light-mode .sub-menu li a{
     color:#333 !important;
 }
+html.light-mode .sub-menu li a:hover{
+    color:#333 !important;
+}
 html.light-mode footer{
     background:#e9edf2 !important;
 }
 html.light-mode footer p{
+    color:#333 !important;
+}
+html.light-mode footer p a{
+    color:#333 !important;
+}
+html.light-mode footer p a:hover{
     color:#333 !important;
 }
 html.light-mode .pricing-item{

@@ -1,0 +1,597 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>文件下载</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<!-- 引入 Open Sans 字体 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="shortcut icon" type="image/x-icon" href="img/logo.ico">
+<style type="text/css">
+:root {
+  --bg-page: #F7F9FF;
+  --bg-container: #FFFFFF;
+  --bg-header: #313E7C;
+  --bg-row-highlight: #F0F3FF;
+  --bg-row-preview: #FFF6E3;
+  --bg-table-data: #DCDCDC;
+  --bg-input: #FFFFFF;
+  --text-main: #222222;
+  --text-light: #F0F3FF;
+  --text-link: #5168CF;
+  --text-download: #5168CF;
+  --border-input: #CCCCCC;
+  --shadow: 0px 0px 20px #CCCCCC;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: #181822;
+    --bg-container: #232738;
+    --bg-header: #313E7C;
+    --bg-row-highlight: #343b5c;
+    --bg-row-preview: #3b362c;
+    --bg-table-data: #444652;
+    --bg-input: #2c3042;
+    --text-main: #e4e7f2;
+    --text-light: #F0F3FF;
+    --text-link: #7994e8;
+    --text-download: #7994e8;
+    --border-input: #555555;
+    --shadow: 0px 0px 20px #111111;
+  }
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: medium;
+  background-color: var(--bg-page);
+  background-image: url('images/snow64b.gif');
+  color: var(--text-main);
+}
+
+A {
+  color: var(--text-link);
+  text-decoration: none;
+}
+
+h2, h3 {
+  margin-bottom: 0.3em;
+  color: var(--text-main);
+}
+
+.tableRoot {
+  margin: 0 auto;
+  min-width: 850px;
+  background-color: var(--bg-container);
+  box-shadow: var(--shadow);
+  border: 0px solid #808080;
+  border-spacing: 0;
+}
+
+.header {
+  background-color: var(--bg-header);
+  padding-bottom: 0.32em;
+}
+
+.headerTitle {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 300%;
+  font-weight: bold;
+  padding-left: 20px;
+  padding-right: 40px;
+  line-height: 1.3em;
+}
+
+.headerTitle A {
+  color: var(--text-light);
+  text-decoration: none;
+}
+
+.headerNav {
+  text-align: left;
+  background-color: var(--bg-header);
+  border-width: 0px;
+  margin-left: 0px;
+}
+
+.headerNav A {
+  color: var(--text-light);
+  text-decoration: none;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 0.3em;
+  padding-bottom: 0.3em;
+}
+
+.headerNav A:hover {
+  background-color: #6974A3;
+  transition: .25s;
+  text-decoration: none;
+}
+
+.content {
+  padding: 18px;
+  padding-top: 10px;
+  text-align: left;
+  text-indent: 0px;
+  margin: 10px;
+  color: var(--text-main);
+}
+
+.content A:hover {
+}
+
+.footer {
+  font-size: small;
+  text-align: right;
+  background-color: var(--bg-header);
+  padding-left: 0.3em;
+  padding-right: 0.3em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+
+.footerIcon {
+}
+
+.footerIcon IMG {
+  margin-bottom: -0.3em;
+  margin-right: 0.7em;
+  width: 1.2em;
+  height: 1.2em;
+}
+
+.footerText A {
+  text-decoration: none;
+  padding-left: 0.7em;
+  padding-right: 0.7em;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  color: var(--text-light);
+}
+
+.footerText A:hover {
+  text-decoration: none;
+  background-color: #6974A3;
+  transition: .25s;
+  color: var(--text-light);
+}
+
+.downloads {
+  width: 100%;
+}
+
+.spoilerLink {
+  line-height: 200%;
+  color: var(--text-link);
+}
+
+.showAll {
+  text-align: center;
+  margin-top: 2em;
+}
+
+.downloadTable {
+  border-collapse: collapse;
+  width: auto;
+  line-height: 200%;
+  color: var(--text-main);
+}
+
+.downloadLine {
+  color: var(--text-main);
+}
+
+.downloadLine .colFile {
+  width: 270px;
+  padding-left: 10px;
+  color: var(--text-main);
+}
+
+.downloadLine .colDownload A,
+.downloadButton A {
+  width: 80px;
+  text-align: center;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  border: 1px solid #5168CF;
+  color: var(--text-download);
+}
+
+.downloadLine .colMirror {
+  width: 100px;
+  text-align: center;
+}
+
+.downloadLine .colMirror A {
+  color: var(--text-link);
+}
+
+.downloadLine .colChangelog {
+  width: 110px;
+}
+
+.downloadLine .colForge {
+  width: 115px;
+}
+
+.downloadLine .colDate {
+  width: 80px;
+  text-align: right;
+  padding-right: 10px;
+  color: var(--text-main);
+}
+
+.downloadLinePreview {
+  background-color: var(--bg-row-preview);
+}
+
+.downloadLineMain:first-child {
+  background-color: var(--bg-row-highlight);
+}
+
+.downloadLineMain:first-child .colDownload A,
+.downloadButton A {
+  font-weight: normal;
+  color: var(--text-light);
+  background-color: #313E7C;
+  border: 1px solid #313E7C;
+}
+
+.downloadLineMain:first-child .colDownload A:hover,
+.downloadButton A:hover {
+  background-color: #6974A3;
+  transition: .25s;
+}
+
+LI STRONG {
+  line-height: 200%;
+}
+
+.tableDownload {
+  margin: 0 auto;
+}
+
+.tableDonate TR {
+  height: 35px;
+}
+
+.scaleNearest {
+  image-rendering: optimizeSpeed;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -o-crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: optimize-contrast;
+  -ms-interpolation-mode: nearest-neighbor;
+  image-rendering: pixelated;
+}
+
+.tableData {
+  border-collapse: collapse;
+}
+
+.tableData th {
+  color: var(--text-light);
+  background-color: var(--bg-header);
+  font-weight: normal;
+}
+
+.tableData,
+.tableData th,
+.tableData td {
+  border: 0px solid black;
+}
+
+.tableData th,
+.tableData td {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: var(--text-main);
+}
+
+.tableDataDis {
+  background-color: var(--bg-table-data);
+}
+
+.tableDataIcon {
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.tableDataCape {
+  max-height: 44px;
+}
+
+.tableDataCentered {
+  text-align: center;
+}
+
+.tableBanner {
+  width: 100%;
+  padding: 8px;
+}
+
+.tableBanner TR {
+  text-align: center;
+  margin: 0.3em;
+}
+
+.tableBanner TD {
+  padding-top: 1em;
+}
+
+.tableBanner IMG {
+  border: 1px solid #f0f0f0;
+}
+
+.tableBanner TD * {
+  margin: 0.3em;
+}
+
+.tableBanners TR TD {
+  padding: 9px;
+  padding-right: 8px;
+}
+
+.tableBanners IMG {
+  border: 1px solid #f0f0f0;
+}
+
+.bannerSelTable {
+  width: 100%;
+}
+
+.bannerSelUser {
+  text-align: right;
+}
+
+.bannerNav {
+  text-align: center;
+}
+
+.bannerNav * {
+  margin: 0.3em;
+}
+
+TD .tableDataEditable {
+  background-color: var(--bg-row-preview);
+  border: 2px solid transparent;
+  color: var(--text-main);
+}
+
+input,
+select {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: medium;
+  padding: 2px;
+  background: var(--bg-input);
+  color: var(--text-main);
+  border: 1px solid var(--border-input);
+}
+
+input[type=submit] {
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+}
+
+input[type=checkbox] {
+  transform: scale(1.3);
+}
+
+#preview3,
+#preview1,
+#preview2,
+#preview4 {
+  color: var(--text-main);
+}
+
+#preview3 a,
+#preview1 a,
+#preview2 a,
+#preview4 a {
+  color: var(--text-link);
+}
+</style>
+</head>
+<body>
+<table class="tableRoot">
+<tr>
+<td class="header">
+<span class="headerTitle">
+<a href=""></a>
+</span>
+<span class="headerNav">
+<a href="index.html">返回</a>
+</span>
+</td>
+</tr>
+<tr>
+<td class="content">
+<span class="downloads">
+<script type='text/javascript'>
+function showSpoiler(elemId, linkId, hideLink) {
+  var elem = document.getElementById(elemId);
+  var link = document.getElementById(linkId);
+  if (elem.style.position == 'absolute') {
+    elem.style.position = 'static';
+    elem.style.visibility = 'visible';
+    elem.style.opacity = '1';
+    link.innerHTML = link.innerHTML.replace("+", "-");
+  } else {
+    elem.style.position = 'absolute';
+    elem.style.visibility = 'hidden';
+    elem.style.opacity = '0';
+    link.innerHTML = link.innerHTML.replace("-", "+");
+  }
+  if(hideLink) link.innerHTML = ("");
+}
+</script>
+                    <h2>Modpack-TF 1.20.1 新迁移（稳定更新）</h2>
+              <!-- Version -->
+              <table class='downloadTable mainTable'>
+                <tr class='downloadLine downloadLineMain'>
+                      <td class='colFile'>Modpack v1.6.1.27 oe(最新版本)</td>
+                      <td class='colDownload'><a href="https://1836859467.share.123865.com/123pan/R3fBTd-aOtGh">下载</a></td>
+                      <td class='colDate'></td>
+                  </tr>
+                </table>
+              
+            <!-- Previews -->
+              <a class="spoilerLink" id="link3" href="javascript:showSpoiler('preview3', 'link3');">+ 查看所有</a>
+                <div id="preview3" style='position: absolute; visibility: hidden; opacity: 0; transition: opacity 0.5s;'>
+                  <table class='downloadTable'>
+                      <tr class='downloadLine downloadLinePreview'>
+                        <td class='colFile'>Modpack v1.6.1.26 oe</td>
+                        <td class='colDownload'><a href="https://1836859467.share.123865.com/123pan/R3fBTd-9bUGh">下载</a></td>
+                        <td class='colDate'></td>
+                      </tr>
+                        <tr class='downloadLine downloadLinePreview'>
+                        <td class='colFile'>Modpack v1.6.1.24 e</td>
+                        <td class='colDownload'><a href="https://1836859467.share.123865.com/123pan/R3fBTd-KC1Gh">下载</a></td>
+                        <td class='colDate'></td>
+                      </tr>
+                        <tr class='downloadLine downloadLinePreview'>
+                        <td class='colFile'>Modpack v1.6.1.22 e</td>
+                        <td class='colDownload'><a href="https://1836859467.share.123865.com/123pan/R3fBTd-56yYh">下载</a></td>
+                        <td class='colDate'></td>
+                      </tr>
+                    <tr class='downloadLine downloadLinePreview'>
+                        <td class='colFile'>Modpack v1.6.0.11 RU</td>
+                        <td class='colDownload'><a href="https://1836859467.share.123865.com/123pan/R3fBTd-L6yYh">下载</a></td>
+                        <td class='colDate'></td>
+                      </tr>
+                        <tr class='downloadLine downloadLinePreview'>
+                        <td class='colFile'>Modpack v1.6.0.9 RU</td>
+                        <td class='colDownload'><a href="https://1836859467.share.123865.com/123pan/R3fBTd-UlHGh">下载</a></td>
+                        <td class='colDate'></td>
+                      </tr>
+                    <tr class='downloadLine downloadLinePreview'>
+                        <td class='colFile'>Modpack v1.6.0.7 RU</td>
+                        <td class='colDownload'><a href="https://1836859467.share.123865.com/123pan/R3fBTd-WMIGh">下载</a></td>
+                        <td class='colDate'></td>
+                      </tr>
+                        <tr class='downloadLine downloadLinePreview'>
+                        <td class='colFile'>Modpack v1.6.0.2 RU</td>
+                        <td class='colDownload'><a href="https://1836859467.share.123865.com/123pan/R3fBTd-0C1Gh">下载</a></td>
+                        <td class='colDate'></td>
+                      </tr>                                          
+                    </table>
+                  </div>
+
+          <h2>Modpack-TF 1.16.5 主要（更新小版本为主）</h2>
+              <!-- Version -->
+              <table class='downloadTable mainTable'>
+                <tr class='downloadLine downloadLineMain'>
+                      <td class='colFile'>Modpack v1.5 spc1(计划更新)</td>
+                      <td class='colDate'></td>
+                  </tr>
+                </table>
+
+            <!-- Previews -->
+              <a class="spoilerLink" id="link1" href="javascript:showSpoiler('preview1', 'link1');">+ 查看所有</a>
+                <div id="preview1" style='position: absolute; visibility: hidden; opacity: 0; transition: opacity 0.5s;'>
+                  <table class='downloadTable'>
+                    <tr class='downloadLine downloadLinePreview'>
+                     </tr>
+                    <tr class='downloadLine downloadLinePreview'>
+                        <td class='colFile'>Modpack v1.5b RU</td>
+                        <td class='colDownload'><a href="https://1836859467.share.123865.com/123pan/R3fBTd-6wVGh">下载</a></td>
+                        <td class='colDate'></td>
+                      </tr>
+                    <tr class='downloadLine downloadLinePreview'>
+                        <td class='colFile'>Modpack v1.5 RU</td>
+                        <td class='colDownload'><a href="https://1836859467.share.123865.com/123pan/R3fBTd-q6yYh">下载</a></td>
+                        <td class='colDate'></td>
+                      </tr>
+                        <tr class='downloadLine downloadLinePreview'>
+                        <td class='colFile'>Modpack v1.5 OF</td>
+                        <td class='colDownload'><a href="https://1836859467.share.123865.com/123pan/R3fBTd-NMIGh">下载</a></td>
+                        <td class='colDate'></td>
+                      </tr>
+                    <tr class='downloadLine downloadLinePreview'>
+                        <td class='colFile'>Modpack v1.4a OF</td>
+                        <td class='colDownload'><a href="https://1836859467.share.123865.com/123pan/R3fBTd-EbUGh">下载</a></td>
+                        <td class='colDate'></td>
+                      </tr>
+                        <tr class='downloadLine downloadLinePreview'>
+                        <td class='colFile'>Modpack v1.4 OF</td>
+                        <td class='colDownload'><a href="a/mpd14.html">下载</a></td>
+                        <td class='colDate'></td>
+                      </tr>
+                    <tr class='downloadLine downloadLinePreview'>
+                        <td class='colFile'>Modpack v1.3b OF</td>
+                        <td class='colDownload'><a href="https://1836859467.share.123865.com/123pan/R3fBTd-CMIGh">下载</a></td>
+                        <td class='colDate'></td>
+                      </tr>
+                        <tr class='downloadLine downloadLinePreview'>
+                        <td class='colFile'>Modpack v1.3a OF</td>
+                        <td class='colDownload'><a href="a/mpd13a.html">下载</a></td>
+                        <td class='colDate'></td>
+                      </tr>
+                    <tr class='downloadLine downloadLinePreview'>
+                        <td class='colFile'>Modpack v1.3 OF</td>
+                        <td class='colDownload'><a href="a/mpd13.html">下载</a></td>
+                        <td class='colDate'></td>
+                        <tr class='downloadLine downloadLinePreview'>
+                        <td class='colFile'>Modpack v1.2 OF</td>
+                        <td class='colDownload'><a href="a/mpd12.html">下载</a></td>
+                        <td class='colDate'></td>
+                      </tr>
+                        <tr class='downloadLine downloadLinePreview'>
+                        <td class='colFile'>Modpack v1.1 OF</td>
+                        <td class='colDownload'><a href="a/mpd11.html">下载</a></td>
+                        <td class='colDate'></td>
+                      </tr>
+                    <tr class='downloadLine downloadLinePreview'>
+                        <td class='colFile'>Modpack v1.0 OF</td>
+                        <td class='colDownload'><a href="a/mpd10.html">下载</a></td>
+                        <td class='colDate'></td>
+                      </tr>
+                      </tr>
+                    </table>
+                 </div>
+                </div>        
+
+
+                       <h2>Modpack-TF 1.18.2 旧迁移（停更）</h2>
+            <!-- Previews -->
+              <a class="spoilerLink" id="link2" href="javascript:showSpoiler('preview2', 'link2');">+ 查看所有</a>
+                <div id="preview2" style='position: absolute; visibility: hidden; opacity: 0; transition: opacity 0.5s;'>
+                  <table class='downloadTable'>
+                      </tr>
+                    <tr class='downloadLine downloadLinePreview'>
+                        <td class='colFile'>Modpack v1.1 OF</td>
+                        <td class='colDownload'><a href="a/mpd111.html">下载</a></td>
+                        <td class='colDate'></td>
+                      </tr>
+                    <tr class='downloadLine downloadLinePreview'>
+                        <td class='colFile'>Modpack v1.0 OF</td>
+                        <td class='colDownload'><a href="a/mpd110.html">下载</a></td>
+                        <td class='colDate'></td>
+                      </tr>
+                    </table>
+                 </div>
+                </div>          
+                <br><span style='font-size:small'>
+          *注<br>现如今只计划更新1.20.1新迁移版本<br>
+          </span>
+              </div>          
+    </span>
+        </td>
+      </tr>
+    </table>
+</body>
+</html>

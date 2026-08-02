@@ -19,47 +19,40 @@ https://templatemo.com/tm-556-catalog-z
         html, body, .navbar, .tm-bg-gray, .tm-video-details, .btn {
             transition: background-color 0.35s ease, color 0.35s ease !important;
         }
-        /* 主题切换按钮样式 */
-        .theme-btn{
-            cursor: pointer;
-            font-size: 1.2rem;
-            padding: 8px 12px !important;
-            display:flex;
-            align-items:center;
-        }
-        .theme-btn:hover{
-            color:#00ccff;
-        }
-        /* 全站统一深色配色 */
-        html.darkmode{
-            --bg-main:#171717;
-            --bg-card:#242424;
-            --bg-nav:#111111;
-            --text-normal:#dddddd;
-            --text-primary:#63c8ff;
-            --bg-footer:#101010;
-        }
-        html.darkmode body{
-            background-color: var(--bg-main) !important;
-            color: var(--text-normal) !important;
-        }
-        html.darkmode .navbar{
-            background-color: var(--bg-nav) !important;
-        }
-        html.darkmode .tm-bg-gray{
-            background-color: var(--bg-card) !important;
-        }
-        html.darkmode .tm-text-gray-dark{
-            color:#e0e0e0 !important;
-        }
-        html.darkmode .tm-text-gray{
-            color:#bbbbbb !important;
-        }
-        html.darkmode .tm-text-primary{
-            color:var(--text-primary) !important;
-        }
-        html.darkmode .tm-footer{
-            background-color: var(--bg-footer) !important;
+
+        /* ===================== 跟随系统主题 配色全站统一 ===================== */
+        @media (prefers-color-scheme: dark) {
+            :root{
+                --body-bg:#181824;
+                --card-bg:#2c3254;
+                --text-normal:#eeeeee;
+                --text-primary:#7398e8;
+                --footer-bg:#121212;
+                --navbar-bg:#1e1e2f;
+            }
+
+            body{
+                background-color: var(--body-bg) !important;
+                color: var(--text-normal) !important;
+            }
+            .navbar{
+                background-color: var(--navbar-bg) !important;
+            }
+            .tm-bg-gray{
+                background-color: var(--card-bg) !important;
+            }
+            .tm-text-gray-dark{
+                color:#e0e0e0 !important;
+            }
+            .tm-text-gray{
+                color:#bbbbbb !important;
+            }
+            .tm-text-primary{
+                color:var(--text-primary) !important;
+            }
+            .tm-footer{
+                background-color: var(--footer-bg) !important;
+            }
         }
     </style>
 </head>
@@ -86,10 +79,7 @@ https://templatemo.com/tm-556-catalog-z
                     <li class="nav-item">
                         <a class="nav-link nav-link-2" href="indexD.html">资源</a>
                     </li>
-                    <!-- 明暗切换图标 -->
-                    <li class="nav-item theme-btn" id="themeToggle">
-                        <i class="fas fa-moon"></i>
-                    </li>
+                    <!-- 已移除明暗切换图标 -->
                 </ul>
             </div>
         </div>
@@ -168,29 +158,7 @@ https://templatemo.com/tm-556-catalog-z
         $(window).on("load", function() {
             $('body').addClass('loaded');
         });
-
-        // 黑夜/白天模式切换【全站统一】
-        const htmlTag = document.documentElement;
-        const toggleBtn = document.getElementById('themeToggle');
-        const icon = toggleBtn.querySelector('i');
-        let darkStatus = localStorage.getItem('siteTheme') === 'dark';
-
-        function updateTheme(){
-            if(darkStatus){
-                htmlTag.classList.add('darkmode');
-                icon.className = 'fas fa-sun';
-            }else{
-                htmlTag.classList.remove('darkmode');
-                icon.className = 'fas fa-moon';
-            }
-        }
-        updateTheme();
-
-        toggleBtn.onclick = function(){
-            darkStatus = !darkStatus;
-            localStorage.setItem('siteTheme', darkStatus ? 'dark' : 'light');
-            updateTheme();
-        }
+        /* 删除全部手动切换主题相关JS */
     </script>
 </body>
 </html>

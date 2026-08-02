@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -9,429 +8,548 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-
 <link rel="shortcut icon" type="image/x-icon" href="img/logo.ico">
 <style type="text/css">
-      body {
-        font-family:'Open Sans', sans-serif;
-        font-weight: normal;
-        font-style: normal;
-        font-size: medium;
-        background-image:url('images/snow64b.gif');
-      }
-      A {
-        color: #5168CF; 
-        text-decoration: none; 
-      }    
-      h2,h3 {
-        margin-bottom: 0.3em
-      }
-      .tableRoot {
-        margin: 0 auto; 
-        min-width: 850px; 
-        background-color: white; 
-        box-shadow: 0px 0px 20px #CCCCCC;
-        border: 0px solid #808080;
-        border-spacing:0;
-      }
-      .header {
-        background-color: #313E7C;
-        padding-bottom: 0.32em;
-      }
-      .headerTitle {
-        font-family:'Open Sans', sans-serif;
-        font-size:300%; 
-        font-weight:bold; 
-        padding-left: 20px;
-        padding-right: 40px;
-        line-height: 1.3em;
-      }
-      .headerTitle A {
-        color: #F0F3FF; 
-        text-decoration: none;
-      }
-      .headerNav {
-        text-align: left; 
-        background-color: #313E7C;
-        border-width: 0px;
-        margin-left: 0px
-      }
-      .headerNav A {
-        color: #F0F3FF; 
-        text-decoration: none;
-        padding-left: 1em;
-        padding-right: 1em;
-        padding-top: 0.3em;
-        padding-bottom: 0.3em;
-      }
-      .headerNav A:hover {
-        background-color: #6974A3;
-        transition: .25s;
-        text-decoration: none;
-      }
-      .content {
-        padding: 18px;
-        padding-top: 10px; 
-        text-align: left; 
-        text-indent: 0px; 
-        margin: 10px;
-      }
-      .content A:hover {
-      }
-      .footer {
-        font-size:small; 
-        text-align: right;  
-        background-color: #313E7C; 
-        padding-left: 0.3em;
-        padding-right: 0.3em;
-        padding-top: 0.5em;
-        padding-bottom: 0.5em;
-      }
-      .footerIcon {
-      }
-      .footerIcon IMG {
-        margin-bottom: -0.3em;
-        margin-right: 0.7em;
-        width: 1.2em;
-        height: 1.2em;
-      }
-      .footerText A {
-        text-decoration: none;
-        padding-left: 0.7em; 
-        padding-right: 0.7em;
-        padding-top: 0.2em;
-        padding-bottom: 0.2em;
-        color: #F0F3FF;
-      }
-      .footerText A:hover {
-        text-decoration: none;
-        background-color: #6974A3;
-        transition: .25s;
-        color: #F0F3FF;
-      }
-      .downloads {
-        width: 100%
-      }
-      .spoilerLink {
-        line-height: 200%;
-      }
-      .showAll {
-        text-align: center;
-        margin-top: 2em;
-      }
-      .downloadTable {
-        border-collapse: collapse;
-        width: auto;
-        line-height: 200%;
-      }
-      .downloadLine {
-      }
-      .downloadLine .colFile {
-        width: 270px;
-        padding-left: 10px;
-      }
-      .downloadLine .colDownload A,
-      .downloadButton A {
-        width: 80px;
-        text-align: center;
-        padding-left: 1em;
-        padding-right: 1em;
-        padding-top: 0.2em;
-        padding-bottom: 0.2em;
-        border: 1px solid #5168CF;
-      }
-      .downloadLine .colMirror {
-        width: 100px; 
-        text-align: center;
-      }
-      .downloadLine .colChangelog {
-        width: 110px;
-      }
-      .downloadLine .colForge {
-        width: 115px;
-      }
-      .downloadLine .colDate {
-        width: 80px;
-        text-align: right;
-        padding-right: 10px;
-      }
-      .downloadLinePreview {
-        background-color: #FFF6E3
-      }
-      .downloadLineMain:first-child {
-        background-color: #F0F3FF
-      }
-      .downloadLineMain:first-child .colDownload  A, 
-      .downloadButton A{
-        font-weight: normal;
-        color: white;
-        background-color: #313E7C;
-        border: 1px solid #313E7C;
-      }
-      .downloadLineMain:first-child .colDownload A:hover,
-      .downloadButton A:hover{
-        background-color: #6974A3;
-        transition: .25s;
-      }
-      LI STRONG {
-        line-height: 200%;
-      }
-      .tableDownload {
-        margin: 0 auto; 
-      }
-      .tableDonate TR {
-        height: 35px;
-      }
-      .scaleNearest {  
-        image-rendering:optimizeSpeed;
-        image-rendering:-moz-crisp-edges;
-        image-rendering:-o-crisp-edges;
-        image-rendering:-webkit-optimize-contrast;
-        image-rendering:optimize-contrast;
-        -ms-interpolation-mode:nearest-neighbor;
-        image-rendering:pixelated;
-      }
-      .tableData {
-        border-collapse: collapse;
-      }
-      .tableData th {
-        color: #F0F3FF;
-        background-color: #313E7C;
-        font-weight: normal;
-      }
-      .tableData, .tableData th, .tableData td {
-        border: 0px solid black;
-      }
-      .tableData th, .tableData td {
-        padding-left:10px;
-        padding-right:10px;
-        padding-top:5px;
-        padding-bottom:5px;
-      }
-      .tableDataDis {
-        background-color: #DCDCDC
-      }
-      .tableDataIcon {
-        width: 1.5em;
-        height: 1.5em;
-      }
-      .tableDataCape {
-        max-height: 44px;
-      }
-      .tableDataCentered {
-        text-align: center;
-      }
-      .tableBanner {
-        width: 100%;
-        padding: 8px;
-      }
-      .tableBanner TR {
-        text-align: center;
-        margin: 0.3em;
-      }
-      .tableBanner TD {
-        padding-top: 1em;
-      }
-      .tableBanner IMG {
-        border: 1px solid #f0f0f0;
-      }
-      .tableBanner TD * {
-        margin: 0.3em;
-      }
-      .tableBanners TR TD {
-        padding: 9px;
-        padding-right: 8px;
-      }
-      .tableBanners IMG {
-        border: 1px solid #f0f0f0;
-      }
-      .bannerSelTable {
-        width: 100%;
-      }
-      .bannerSelUser {
-        text-align: right;
-      }
-      .bannerNav {
-        text-align: center;
-      }
-      .bannerNav * {
-        margin: 0.3em;
-      }
-      TD .tableDataEditable {
-        background-color: #FFF6E3;
-        border: 2px solid transparent;
-      }
-      input,
-      select {
-        font-family:'Open Sans', sans-serif;
-        font-weight: normal;
-        font-style: normal;
-        font-size: medium;
-        padding: 2px;
-      }
-      input[type=submit] {
-        padding-left: 1em;
-        padding-right: 1em;
-        padding-top: 0.2em;
-        padding-bottom: 0.2em;
-      }
-      input[type=checkbox] {
-        transform : scale(1.3);
-      }
-    </style>
+:root {
+  --bg-page: #F7F9FF;
+  --bg-container: #FFFFFF;
+  --bg-header: #313E7C;
+  --bg-row-highlight: #F0F3FF;
+  --bg-row-preview: #FFF6E3;
+  --bg-table-data: #DCDCDC;
+  --bg-input: #FFFFFF;
+  --text-main: #222222;
+  --text-light: #F0F3FF;
+  --text-link: #5168CF;
+  --text-download: #5168CF;
+  --border-input: #CCCCCC;
+  --shadow: 0px 0px 20px #CCCCCC;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: #181822;
+    --bg-container: #232738;
+    --bg-header: #313E7C;
+    --bg-row-highlight: #343b5c;
+    --bg-row-preview: #3b362c;
+    --bg-table-data: #444652;
+    --bg-input: #2c3042;
+    --text-main: #e4e7f2;
+    --text-light: #F0F3FF;
+    --text-link: #7994e8;
+    --text-download: #7994e8;
+    --border-input: #555555;
+    --shadow: 0px 0px 20px #111111;
+  }
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: medium;
+  background-color: var(--bg-page);
+  background-image: url('images/snow64b.gif');
+  color: var(--text-main);
+}
+
+A {
+  color: var(--text-link);
+  text-decoration: none;
+}
+
+h2, h3 {
+  margin-bottom: 0.3em;
+  color: var(--text-main);
+}
+
+.tableRoot {
+  margin: 0 auto;
+  min-width: 850px;
+  background-color: var(--bg-container);
+  box-shadow: var(--shadow);
+  border: 0px solid #808080;
+  border-spacing: 0;
+}
+
+.header {
+  background-color: var(--bg-header);
+  padding-bottom: 0.32em;
+}
+
+.headerTitle {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 300%;
+  font-weight: bold;
+  padding-left: 20px;
+  padding-right: 40px;
+  line-height: 1.3em;
+}
+
+.headerTitle A {
+  color: var(--text-light);
+  text-decoration: none;
+}
+
+.headerNav {
+  text-align: left;
+  background-color: var(--bg-header);
+  border-width: 0px;
+  margin-left: 0px;
+}
+
+.headerNav A {
+  color: var(--text-light);
+  text-decoration: none;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 0.3em;
+  padding-bottom: 0.3em;
+}
+
+.headerNav A:hover {
+  background-color: #6974A3;
+  transition: .25s;
+  text-decoration: none;
+}
+
+.content {
+  padding: 18px;
+  padding-top: 10px;
+  text-align: left;
+  text-indent: 0px;
+  margin: 10px;
+  color: var(--text-main);
+}
+
+.content A:hover {
+}
+
+.footer {
+  font-size: small;
+  text-align: right;
+  background-color: var(--bg-header);
+  padding-left: 0.3em;
+  padding-right: 0.3em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+
+.footerIcon {
+}
+
+.footerIcon IMG {
+  margin-bottom: -0.3em;
+  margin-right: 0.7em;
+  width: 1.2em;
+  height: 1.2em;
+}
+
+.footerText A {
+  text-decoration: none;
+  padding-left: 0.7em;
+  padding-right: 0.7em;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  color: var(--text-light);
+}
+
+.footerText A:hover {
+  text-decoration: none;
+  background-color: #6974A3;
+  transition: .25s;
+  color: var(--text-light);
+}
+
+.downloads {
+  width: 100%;
+}
+
+.spoilerLink {
+  line-height: 200%;
+  color: var(--text-link);
+}
+
+.showAll {
+  text-align: center;
+  margin-top: 2em;
+}
+
+.downloadTable {
+  border-collapse: collapse;
+  width: auto;
+  line-height: 200%;
+  color: var(--text-main);
+}
+
+.downloadLine {
+  color: var(--text-main);
+}
+
+.downloadLine .colFile {
+  width: 270px;
+  padding-left: 10px;
+  color: var(--text-main);
+}
+
+.downloadLine .colDownload A,
+.downloadButton A {
+  width: 80px;
+  text-align: center;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  border: 1px solid #5168CF;
+  color: var(--text-download);
+}
+
+.downloadLine .colMirror {
+  width: 100px;
+  text-align: center;
+}
+
+.downloadLine .colMirror A {
+  color: var(--text-link);
+}
+
+.downloadLine .colChangelog {
+  width: 110px;
+}
+
+.downloadLine .colForge {
+  width: 115px;
+}
+
+.downloadLine .colDate {
+  width: 80px;
+  text-align: right;
+  padding-right: 10px;
+  color: var(--text-main);
+}
+
+.downloadLinePreview {
+  background-color: var(--bg-row-preview);
+}
+
+.downloadLineMain:first-child {
+  background-color: var(--bg-row-highlight);
+}
+
+.downloadLineMain:first-child .colDownload A,
+.downloadButton A {
+  font-weight: normal;
+  color: var(--text-light);
+  background-color: #313E7C;
+  border: 1px solid #313E7C;
+}
+
+.downloadLineMain:first-child .colDownload A:hover,
+.downloadButton A:hover {
+  background-color: #6974A3;
+  transition: .25s;
+}
+
+LI STRONG {
+  line-height: 200%;
+}
+
+.tableDownload {
+  margin: 0 auto;
+}
+
+.tableDonate TR {
+  height: 35px;
+}
+
+.scaleNearest {
+  image-rendering: optimizeSpeed;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -o-crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: optimize-contrast;
+  -ms-interpolation-mode: nearest-neighbor;
+  image-rendering: pixelated;
+}
+
+.tableData {
+  border-collapse: collapse;
+}
+
+.tableData th {
+  color: var(--text-light);
+  background-color: var(--bg-header);
+  font-weight: normal;
+}
+
+.tableData,
+.tableData th,
+.tableData td {
+  border: 0px solid black;
+}
+
+.tableData th,
+.tableData td {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: var(--text-main);
+}
+
+.tableDataDis {
+  background-color: var(--bg-table-data);
+}
+
+.tableDataIcon {
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.tableDataCape {
+  max-height: 44px;
+}
+
+.tableDataCentered {
+  text-align: center;
+}
+
+.tableBanner {
+  width: 100%;
+  padding: 8px;
+}
+
+.tableBanner TR {
+  text-align: center;
+  margin: 0.3em;
+}
+
+.tableBanner TD {
+  padding-top: 1em;
+}
+
+.tableBanner IMG {
+  border: 1px solid #f0f0f0;
+}
+
+.tableBanner TD * {
+  margin: 0.3em;
+}
+
+.tableBanners TR TD {
+  padding: 9px;
+  padding-right: 8px;
+}
+
+.tableBanners IMG {
+  border: 1px solid #f0f0f0;
+}
+
+.bannerSelTable {
+  width: 100%;
+}
+
+.bannerSelUser {
+  text-align: right;
+}
+
+.bannerNav {
+  text-align: center;
+}
+
+.bannerNav * {
+  margin: 0.3em;
+}
+
+TD .tableDataEditable {
+  background-color: var(--bg-row-preview);
+  border: 2px solid transparent;
+  color: var(--text-main);
+}
+
+input,
+select {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: medium;
+  padding: 2px;
+  background: var(--bg-input);
+  color: var(--text-main);
+  border: 1px solid var(--border-input);
+}
+
+input[type=submit] {
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+}
+
+input[type=checkbox] {
+  transform: scale(1.3);
+}
+
+#preview3,
+#preview1,
+#preview2,
+#preview4 {
+  color: var(--text-main);
+}
+
+#preview3 a,
+#preview1 a,
+#preview2 a,
+#preview4 a {
+  color: var(--text-link);
+}
+</style>
 </head>
 <body>
-    <table class="tableRoot">
-      <tr>
-        <td class="header">
-          <span class="headerTitle">
-            <a href=""></a>
-          </span>
-          <span class="headerNav">
-            <a href="index.html">返回</a>
-          </span>
-        </td>
-      </tr>
-      <tr>
-        <td class="content">
-<span class="downloads">
-          <script type='text/javascript'>
-            function showSpoiler(elemId, linkId, hideLink)
-            {
-              var elem = document.getElementById(elemId);
-              var link = document.getElementById(linkId);
-              if (elem.style.position == 'absolute')
-              {
-                elem.style.position = 'static';
-                elem.style.visibility = 'visible';
-                elem.style.opacity = '1';
-                link.innerHTML = link.innerHTML.replace("+", "-");
-              }
-              else
-              {
-                elem.style.position = 'absolute';
-                elem.style.visibility = 'hidden';
-                elem.style.opacity = '0';
-                link.innerHTML = link.innerHTML.replace("-", "+");
-              }
-              if(hideLink)
-                link.innerHTML = ("");
-            }
-          </script>
-          
-                    <h3>Longhorn 工具</h3>
-              <a class="spoilerLink" id="link3" href="javascript:showSpoiler('preview3', 'link3');">+ 查看所有</a>
-                <div id="preview3" style='position: absolute; visibility: hidden; opacity: 0; transition: opacity 0.5s;'>
-                  <table class='downloadTable'>
-                    <tr class='downloadLine downloadLineMore'>
-                        <td class='colFile'>3683 tools</td>
-                        <td class='colDownload'><a href="https://d.feiliupan.com/t/108920372774047744/3683 tools.iso">下载</a></td>
-                        <td class='colMirror'><a href="https://www.betaworld.cn/Windows_Vista:6.0.3683.0.Lab06_N.020923-1821">(查看描述)</a></td>
-                        <td class='colDate'></td>
-                      </tr>
-                    <tr class='downloadLine downloadLineMore'>
-                        <td class='colFile'>3713 tools</td>
-                        <td class='colDownload'><a href="https://d.feiliupan.com/t/108920372774047744/3718 tools.iso">下载</a></td>
-                        <td class='colMirror'><a href=https://www.betaworld.cn/Windows_Vista:6.0.3713.0.Lab06_N.021113-1841>(查看描述)</a></td>
-                        <td class='colDate'>  </td>
-                      </tr>
-                    <tr class='downloadLine downloadLineMore'>
-                        <td class='colFile'>3718 tools</td>
-                        <td class='colDownload'><a href="https://d.feiliupan.com/t/108920372774047744/3718 tools.iso">下载</a></td>
-                        <td class='colMirror'><a href="https://www.betaworld.cn/Windows_Vista:6.0.3718.0.Lab06_N.021119-1730">(查看描述)</a></td>
-                        <td class='colDate'></td>
-                      </tr>
-                    <tr class='downloadLine downloadLineMore'>
-                        <td class='colFile'>4015 tools</td>
-                        <td class='colDownload'><a href="https://d.feiliupan.com/t/108920372774047744/tools/4015tools.zip">下载</a></td>
-                        <td class='colMirror'><a href="https://www.betaworld.cn/Windows_Vista:6.0.4015.0.main.030328-1500">(查看描述)</a></td>
-                        <td class='colDate'></td>
-                      </tr>
-                    <tr class='downloadLine downloadLineMore'>
-                        <td class='colFile'>4039 tools</td>
-                        <td class='colDownload'><a href="https://d.feiliupan.com/t/108920372774047744/tools/4039tools.zip">下载</a></td>
-                        <td class='colMirror'><a href="https://www.betaworld.cn/Windows_Vista:6.0.4039.0.Lab06_n.030824-1954">(查看描述)</a></td>
-                        <td class='colDate'></td>
-                      </tr>
-                    <tr class='downloadLine downloadLineMore'>
-                        <td class='colFile'>4074 tools</td>
-                        <td class='colDownload'><a href="https://d.feiliupan.com/t/108920372774047744/tools/4074tools.zip">下载</a></td>
-                        <td class='colMirror'><a href="https://www.betaworld.cn/Windows_Vista:6.0.4074.0.idx02.040425-1535">(查看描述)</a></td>
-                        <td class='colDate'></td>
-                      </tr>                                            
-                    </table>
-                  </div>
-
-          <h3>Longhorn 主题</h3>
-              <a class="spoilerLink" id="link1" href="javascript:showSpoiler('preview1', 'link1');">+ 查看所有</a>
-                <div id="preview1" style='position: absolute; visibility: hidden; opacity: 0; transition: opacity 0.5s;'>
-                  <table class='downloadTable'>
-                    <tr class='downloadLine downloadLineMore'>
-                        <td class='colFile'>Aero5219-Windows Vista</td>
-                        <td class='colDownload'><a href="https://d.feiliupan.com/t/108920372774047744/theme/Aero5219.zip">下载</a></td>
-                        <td class='colMirror'><a href="  ">  </a></td>
-                        <td class='colDate'></td>
-                      </tr>
-                    <tr class='downloadLine downloadLineMore'>
-                        <td class='colFile'>Aero5219 1.0-Windows Vista</td>
-                        <td class='colDownload'><a href="https://d.feiliupan.com/t/108920372774047744/theme/Aero5219 1.0.zip">下载</a></td>
-                        <td class='colMirror'><a href="  ">  </a></td>
-                        <td class='colDate'>  </td>
-                      </tr>
-                    <tr class='downloadLine downloadLineMore'>
-                        <td class='colFile'>Aero5219 2.0-Windows Vista</td>
-                        <td class='colDownload'><a href="https://d.feiliupan.com/t/108920372774047744/theme/Aero5219 2.0.zip">下载</a></td>
-                        <td class='colMirror'><a href="  ">  </a></td>
-                        <td class='colDate'>  </td>
-                      </tr>
-                    <tr class='downloadLine downloadLineMore'>
-                        <td class='colFile'>Aero4074jade-Windows Vista</td>
-                        <td class='colDownload'><a href="https://d.feiliupan.com/t/108920372774047744/theme/Aero4074 jade.zip">下载</a></td>
-                        <td class='colMirror'><a href="  ">  </a></td>
-                        <td class='colDate'>  </td>
-                      </tr>
-                    </table>
-                </div>
-
-                       <h3>Boot Camp驱动</h3>
-              <a class="spoilerLink" id="link2" href="javascript:showSpoiler('preview2', 'link2');">+ 查看所有</a>
-                <div id="preview2" style='position: absolute; visibility: hidden; opacity: 0; transition: opacity 0.5s;'>
-                  <table class='downloadTable'>
-                      <tr class='downloadLine downloadLineMore'>
-                      </tr>
-                    <tr class='downloadLine downloadLinePreview'>
-                        <td class='colFile'>Windows Vista Boot Camp</td>
-                        <td class='colDownload'><a href="  ">仅提供</a></td>
-                        <td class='colDate'></td>
-                      </tr>
-                    <tr class='downloadLine downloadLinePreview'>
-                        <td class='colFile'>Windows 7 Boot Camp</td>
-                        <td class='colDownload'><a href="  ">仅提供</a></td>
-                        <td class='colDate'></td>
-                      </tr>
-                    </table>
-                 </div>
-                        <h3>其他</h3>
-              <a class="spoilerLink" id="link4" href="javascript:showSpoiler('preview4', 'link4');">+ 查看所有</a>
-                <div id="preview4" style='position: absolute; visibility: hidden; opacity: 0; transition: opacity 0.5s;'>
-                  <table class='downloadTable'>
-                                        <tr class='downloadLine downloadLineMore'>
-                        <td class='colFile'>VistaBuild5270 游戏</td>
-                        <td class='colDownload'><a href="https://d.feiliupan.com/t/108920372774047744/Bulid5270 Games.zip">下载</a></td>
-                        <td class='colMirror'><a href="  ">  </a></td>
-                        <td class='colDate'>  </td>
-                      </tr>
-                    <tr class='downloadLine downloadLineMore'>
-                        <td class='colFile'>缓存清理</td>
-                        <td class='colDownload'><a href="https://d.feiliupan.com/t/108920372774047744/theme/缓存清理.zip">下载</a></td>
-                        <td class='colMirror'><a href="  ">  </a></td>
-                        <td class='colDate'>  </td>
-                      </tr>                   
-                    </table>
-                </div>
+<table class="tableRoot">
+<tr>
+<td class="header">
+<span class="headerTitle">
+<a href=""></a>
 </span>
-        </td>
-      </tr>
-    </table>
+<span class="headerNav">
+<a href="index.html">返回</a>
+</span>
+</td>
+</tr>
+<tr>
+<td class="content">
+<span class="downloads">
+<script type='text/javascript'>
+function showSpoiler(elemId, linkId, hideLink) {
+  var elem = document.getElementById(elemId);
+  var link = document.getElementById(linkId);
+  if (elem.style.position == 'absolute') {
+    elem.style.position = 'static';
+    elem.style.visibility = 'visible';
+    elem.style.opacity = '1';
+    link.innerHTML = link.innerHTML.replace("+", "-");
+  } else {
+    elem.style.position = 'absolute';
+    elem.style.visibility = 'hidden';
+    elem.style.opacity = '0';
+    link.innerHTML = link.innerHTML.replace("-", "+");
+  }
+  if(hideLink) link.innerHTML = ("");
+}
+</script>
+<h3>Longhorn 工具</h3>
+<a class="spoilerLink" id="link3" href="javascript:showSpoiler('preview3', 'link3');">+ 查看所有</a>
+<div id="preview3" style='position: absolute; visibility: hidden; opacity: 0; transition: opacity 0.5s;'>
+<table class='downloadTable'>
+<tr class='downloadLine downloadLineMore'>
+<td class='colFile'>3683 tools</td>
+<td class='colDownload'><a href="https://d.feiliupan.com/t/108920372774047744/3683 tools.iso">下载</a></td>
+<td class='colMirror'><a href="https://www.betaworld.cn/Windows_Vista:6.0.3683.0.Lab06_N.020923-1821">(查看描述)</a></td>
+<td class='colDate'></td>
+</tr>
+<tr class='downloadLine downloadLineMore'>
+<td class='colFile'>3713 tools</td>
+<td class='colDownload'><a href="https://d.feiliupan.com/t/108920372774047744/3718 tools.iso">下载</a></td>
+<td class='colMirror'><a href=https://www.betaworld.cn/Windows_Vista:6.0.3713.0.Lab06_N.021113-1841>(查看描述)</a></td>
+<td class='colDate'> </td>
+</tr>
+<tr class='downloadLine downloadLineMore'>
+<td class='colFile'>3718 tools</td>
+<td class='colDownload'><a href="https://d.feiliupan.com/t/108920372774047744/3718 tools.iso">下载</a></td>
+<td class='colMirror'><a href="https://www.betaworld.cn/Windows_Vista:6.0.3718.0.Lab06_N.021119-1730">(查看描述)</a></td>
+<td class='colDate'></td>
+</tr>
+<tr class='downloadLine downloadLineMore'>
+<td class='colFile'>4015 tools</td>
+<td class='colDownload'><a href="https://d.feiliupan.com/t/108920372774047744/tools/4015tools.zip">下载</a></td>
+<td class='colMirror'><a href="https://www.betaworld.cn/Windows_Vista:6.0.4015.0.main.030328-1500">(查看描述)</a></td>
+<td class='colDate'></td>
+</tr>
+<tr class='downloadLine downloadLineMore'>
+<td class='colFile'>4039 tools</td>
+<td class='colDownload'><a href="https://d.feiliupan.com/t/108920372774047744/tools/4039tools.zip">下载</a></td>
+<td class='colMirror'><a href="https://www.betaworld.cn/Windows_Vista:6.0.4039.0.Lab06_n.030824-1954">(查看描述)</a></td>
+<td class='colDate'></td>
+</tr>
+<tr class='downloadLine downloadLineMore'>
+<td class='colFile'>4074 tools</td>
+<td class='colDownload'><a href="https://d.feiliupan.com/t/108920372774047744/tools/4074tools.zip">下载</a></td>
+<td class='colMirror'><a href="https://www.betaworld.cn/Windows_Vista:6.0.4074.0.idx02.040425-1535">(查看描述)</a></td>
+<td class='colDate'></td>
+</tr>
+</table>
+</div>
+<h3>Longhorn 主题</h3>
+<a class="spoilerLink" id="link1" href="javascript:showSpoiler('preview1', 'link1');">+ 查看所有</a>
+<div id="preview1" style='position: absolute; visibility: hidden; opacity: 0; transition: opacity 0.5s;'>
+<table class='downloadTable'>
+<tr class='downloadLine downloadLineMore'>
+<td class='colFile'>Aero5219-Windows Vista</td>
+<td class='colDownload'><a href="https://d.feiliupan.com/t/108920372774047744/theme/Aero5219.zip">下载</a></td>
+<td class='colMirror'><a href=" "> </a></td>
+<td class='colDate'></td>
+</tr>
+<tr class='downloadLine downloadLineMore'>
+<td class='colFile'>Aero5219 1.0-Windows Vista</td>
+<td class='colDownload'><a href="https://d.feiliupan.com/t/108920372774047744/theme/Aero5219 1.0.zip">下载</a></td>
+<td class='colMirror'><a href=" "> </a></td>
+<td class='colDate'> </td>
+</tr>
+<tr class='downloadLine downloadLineMore'>
+<td class='colFile'>Aero5219 2.0-Windows Vista</td>
+<td class='colDownload'><a href="https://d.feiliupan.com/t/108920372774047744/theme/Aero5219 2.0.zip">下载</a></td>
+<td class='colMirror'><a href=" "> </a></td>
+<td class='colDate'> </td>
+</tr>
+<tr class='downloadLine downloadLineMore'>
+<td class='colFile'>Aero4074jade-Windows Vista</td>
+<td class='colDownload'><a href="https://d.feiliupan.com/t/108920372774047744/theme/Aero4074 jade.zip">下载</a></td>
+<td class='colMirror'><a href=" "> </a></td>
+<td class='colDate'> </td>
+</tr>
+</table>
+</div>
+<h3>Boot Camp驱动</h3>
+<a class="spoilerLink" id="link2" href="javascript:showSpoiler('preview2', 'link2');">+ 查看所有</a>
+<div id="preview2" style='position: absolute; visibility: hidden; opacity: 0; transition: opacity 0.5s;'>
+<table class='downloadTable'>
+<tr class='downloadLine downloadLineMore'>
+</tr>
+<tr class='downloadLine downloadLinePreview'>
+<td class='colFile'>Windows Vista Boot Camp</td>
+<td class='colDownload'><a href=" ">仅提供</a></td>
+<td class='colDate'></td>
+</tr>
+<tr class='downloadLine downloadLinePreview'>
+<td class='colFile'>Windows 7 Boot Camp</td>
+<td class='colDownload'><a href=" ">仅提供</a></td>
+<td class='colDate'></td>
+</tr>
+</table>
+</div>
+<h3>其他</h3>
+<a class="spoilerLink" id="link4" href="javascript:showSpoiler('preview4', 'link4');">+ 查看所有</a>
+<div id="preview4" style='position: absolute; visibility: hidden; opacity: 0; transition: opacity 0.5s;'>
+<table class='downloadTable'>
+<tr class='downloadLine downloadLineMore'>
+<td class='colFile'>VistaBuild5270 游戏</td>
+<td class='colDownload'><a href="https://d.feiliupan.com/t/108920372774047744/Bulid5270 Games.zip">下载</a></td>
+<td class='colMirror'><a href=" "> </a></td>
+<td class='colDate'> </td>
+</tr>
+<tr class='downloadLine downloadLineMore'>
+<td class='colFile'>缓存清理</td>
+<td class='colDownload'><a href="https://d.feiliupan.com/t/108920372774047744/theme/缓存清理.zip">下载</a></td>
+<td class='colMirror'><a href=" "> </a></td>
+<td class='colDate'> </td>
+</tr>
+</table>
+</div>
+</span>
+</td>
+</tr>
+</table>
 </body>
 </html>

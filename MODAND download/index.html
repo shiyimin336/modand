@@ -21,46 +21,36 @@ https://templatemo.com/tm-556-catalog-z
             transition: background-color 0.35s ease, color 0.35s ease !important;
         }
 
-        /* 切换按钮样式 */
-        .theme-toggle{
-            font-size: 1.2rem;
-            cursor: pointer;
-            padding: 8px 12px;
-            display:flex;
-            align-items:center;
-        }
-        .theme-toggle:hover{
-            color:#0099cc;
-        }
+        /* ===================== 跟随系统主题 配色与全站统一 ===================== */
+        @media (prefers-color-scheme: dark) {
+            :root{
+                --body-bg:#181824;
+                --card-bg:#2c3254;
+                --text-color:#eeeeee;
+                --primary-color:#7398e8;
+                --footer-bg:#121212;
+                --navbar-bg:#1e1e2f;
+            }
 
-        /* ===================== 深色模式样式定义 ===================== */
-        html.dark-mode{
-            --body-bg:#1a1a1a;
-            --card-bg:#272727;
-            --text-color:#dddddd;
-            --primary-color:#66bfff;
-            --footer-bg:#121212;
-            --navbar-bg:#151515;
-        }
-
-        html.dark-mode body{
-            background-color: var(--body-bg) !important;
-            color: var(--text-color) !important;
-        }
-        html.dark-mode .navbar{
-            background-color: var(--navbar-bg) !important;
-        }
-        html.dark-mode .tm-bg-gray{
-            background-color: var(--footer-bg) !important;
-        }
-        html.dark-mode .tm-text-gray{
-            color:#bbbbbb !important;
-        }
-        html.dark-mode .tm-text-primary{
-            color:var(--primary-color) !important;
-        }
-        html.dark-mode .effect-ming figcaption{
-            background:rgba(0,0,0,0.75);
+            body{
+                background-color: var(--body-bg) !important;
+                color: var(--text-color) !important;
+            }
+            .navbar{
+                background-color: var(--navbar-bg) !important;
+            }
+            .tm-bg-gray{
+                background-color: var(--footer-bg) !important;
+            }
+            .tm-text-gray{
+                color:#bbbbbb !important;
+            }
+            .tm-text-primary{
+                color:var(--primary-color) !important;
+            }
+            .effect-ming figcaption{
+                background:rgba(0,0,0,0.75);
+            }
         }
     </style>
 </head>
@@ -89,10 +79,7 @@ https://templatemo.com/tm-556-catalog-z
                     <li class="nav-item">
                         <a class="nav-link nav-link-2" href="indexD.html">资源</a>
                     </li>
-                    <!-- 明暗切换图标 -->
-                    <li class="nav-item theme-toggle" id="themeBtn">
-                        <i class="fas fa-moon"></i>
-                    </li>
+                    <!-- 已移除主题切换按钮 -->
                 </ul>
             </div>
         </div>
@@ -167,32 +154,6 @@ https://templatemo.com/tm-556-catalog-z
         $(window).on("load", function() {
             $('body').addClass('loaded');
         });
-
-        // ========== 黑夜模式逻辑 ==========
-        const htmlDom = document.documentElement;
-        const themeBtn = document.getElementById("themeBtn");
-        const icon = themeBtn.querySelector("i");
-
-        //读取本地存储
-        let darkMode = localStorage.getItem("theme") === "dark";
-
-        function setTheme(){
-            if(darkMode){
-                htmlDom.classList.add("dark-mode");
-                icon.className = "fas fa-sun";
-            }else{
-                htmlDom.classList.remove("dark-mode");
-                icon.className = "fas fa-moon";
-            }
-        }
-        setTheme();
-
-        //点击切换
-        themeBtn.onclick = function(){
-            darkMode = !darkMode;
-            localStorage.setItem("theme", darkMode ? "dark":"light");
-            setTheme();
-        }
     </script>
 </body>
 </html>
