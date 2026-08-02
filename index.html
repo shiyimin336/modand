@@ -1,313 +1,310 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
+
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="templatemo">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <title>MODAND web</title>
+
+    <!-- 国内可用思源黑体（替换谷歌字体） -->
+    <link rel="stylesheet" href="https://fonts.font.im/css?family=Noto+Sans+SC:300,400,500,700">
+    <!-- 在线FontAwesome图标CDN -->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="assets/css/templatemo-snapx-photography.css">
+    <link rel="stylesheet" href="assets/css/owl.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
 <!--
-最新更新日期：20250906 09:32:48祝你永远开心！
-模版链接 尊重原作者的心血 http://www.templatemo.com
+TemplateMo576/MODAND web v2.0
+最新更新日期：20260801 12:00:22
+https://templatemo.com/tm-576-snapx-photography
 -->
-    <!-- load stylesheets -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">  
-    <!-- Google web font "Open Sans" -->
-    <link rel="stylesheet" href="font-awesome-4.5.0/css/font-awesome.min.css">                
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">                                      
-    <!-- Bootstrap style -->
-    <link rel="stylesheet" href="css/hero-slider-style.css">                              
-    <!-- Hero slider style (https://codyhouse.co/gem/hero-slider/) -->
-    <link rel="stylesheet" href="css/magnific-popup.css">                                 
-    <!-- Magnific popup style (http://dimsemenov.com/plugins/magnific-popup/) -->
-    <link rel="stylesheet" href="css/templatemo-style.css">                                   
-    <!-- Templatemo style -->
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-          <![endif]-->
+
+    <!-- =========【重点！自定义样式放在所有css后面】========= -->
+    <style>
+/* ==========全局字体设置========== */
+html, body {
+    font-family: "Noto Sans SC", sans-serif !important;
+    transition: background 0.35s ease, color 0.35s ease;
+}
+h1,h2,h3,h4,h5,h6,.header-text h2{
+    font-family: "Noto Sans SC", sans-serif !important;
+}
+
+/* ========== 明暗切换文字按钮样式 ========== */
+.theme-switch {
+    color:#fff;
+    cursor: pointer;
+    padding:6px 10px;
+}
+.theme-switch .theme-text{
+    font-size:15px;
+}
+.theme-switch:hover{
+    color:#70b8ff;
+}
+
+/* ============= 统一顶栏、下拉菜单、页脚配色【深色默认】 ============= */
+.header-area {
+    background-color: #151a28 !important;
+}
+.header-area.header-sticky {
+    background-color: #151a28 !important;
+}
+.main-nav .nav > li > a {
+    color: #ffffff !important;
+}
+.main-nav .nav > li > a:hover,
+.main-nav .nav > li > a.active {
+    color: #70b8ff !important;
+}
+.sub-menu {
+    background-color: #151a28 !important;
+}
+.sub-menu li a {
+    color: #dddddd !important;
+}
+.sub-menu li a:hover {
+    color: #70b8ff !important;
+    background-color: #22293b !important;
+}
+footer {
+    background-color: #151a28 !important;
+    border-top:none !important; /*移除页脚横线*/
+}
+footer p {
+    color: #ccc !important;
+}
+footer p a {
+    color: #70b8ff !important;
+}
+footer p a:hover {
+    color: #ffffff !important;
+}
+
+/* ========== 取消强制大写 ========== */
+.section-heading h6,
+.section-heading h4,
+.main-nav .nav li a,
+.popular-item .top-content .right h4,
+.pricing-item h4,
+.thumb .content h4,
+.border-button a,
+.big-border-button a,
+.icon-button a,
+.header-text h2,
+.closed-item .down-content h4 {
+    text-transform: none !important;
+}
+
+/* ========== 修复首页横幅背景留白、铺满屏幕 ========== */
+.main-banner {
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    width: 100% !important;
+    min-height: 60vh !important;
+    display: flex !important;
+    align-items: center !important;
+}
+.main-banner .container {
+    max-width: 100% !important;
+    padding: 0 !important;
+}
+.main-banner .row {
+    margin:0 !important;
+}
+.main-banner .header-text {
+    padding: 20px 24px !important;
+    text-align:center !important;
+}
+.buttons {
+    margin-top: 25px;
+    display: flex !important;
+    justify-content: center !important;
+}
+
+/* ======================【浅色模式样式】====================== */
+html.light-mode body{
+    background:#f7f8fa;
+}
+html.light-mode .header-area{
+    background-color:#ffffff !important;
+    box-shadow: 0 2px 10px #ddd;
+}
+html.light-mode .main-nav .nav > li > a{
+    color:#222 !important;
+}
+html.light-mode .sub-menu{
+    background:#fff !important;
+}
+html.light-mode .sub-menu li a{
+    color:#333 !important;
+}
+html.light-mode footer{
+    background:#e9edf2 !important;
+}
+html.light-mode footer p{
+    color:#333 !important;
+}
+html.light-mode .pricing-item{
+    background:#fff !important;
+}
+html.light-mode .section-heading h4,
+html.light-mode .pricing-item h4,
+html.light-mode .pricing-item li{
+    color:#222 !important;
+}
+html.light-mode .theme-switch{
+    color:#222;
+}
+    </style>
+
 </head>
 
-    <body>
-        
-        <!-- Content -->
-        <div class="cd-hero">
-
-            <!-- Navigation -->        
-            <div class="cd-slider-nav">
-                <nav class="navbar">
-                    <div class="tm-navbar-bg">
-                        
-                        <a class="navbar-brand text-uppercase" href="#"><i class=""></i>  </a>
-
-                        <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#tmNavbar">
-                            &#9776;
-                        </button>
-                        <div class="collapse navbar-toggleable-md text-xs-center text-uppercase tm-navbar" id="tmNavbar">
-                            <ul class="nav navbar-nav">
-                                <li class="nav-item active selected">
-                                    <a class="nav-link" href="#0" data-no="1">主页<span class="sr-only">(current)</span></a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#0" data-no="2">公告</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#0" data-no="5">关于</a>
-                                </li>
+<body>
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area header-sticky">
+    <div class="container">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="index.html" class="logo">
+                        <img src="assets/images/logo.png" alt="SnapX Photography Template">
+                    </a>
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                      <li><a href="index.html">主页</a></li>
+                        <li class="has-sub">
+                            <a href="javascript:void(0)">其他链接&amp;友情链接</a>
+                            <ul class="sub-menu">
+                                <li><a href="MODAND%20download/index.html">文档与资源</a></li>
+                                <li><a href="dock.html">更新日志</a></li>
+                                <li><a href="https://nicrozoft.org">Nicrozoft网站</a></li>
+                                <li><a href="https://winbetauser.github.io">Winbetauser网站</a></li>
+                                <li><a href="https://rfhs0.github.io/">IVBX server</a></li>
                             </ul>
-                        </div>                        
-                    </div>
+                        </li>
+                        <!-- 明暗文字切换 -->
+                        <li class="theme-switch" id="themeToggle">
+                            <span class="theme-text">深夜</span>
+                        </li>
+                    </ul>
+                    <!-- ***** Menu End ***** -->
                 </nav>
-            </div> 
-
-            <ul class="cd-hero-slider">
-
-                <!-- Page 1 Home -->
-                <li class="selected">
-                    <div class="cd-full-width">
-                        <div class="container-fluid js-tm-page-content tm-page-pad" data-page-no="1">
-                            <div class="row">
-                                    <div class="tm-3-col-container">                                        
-                                            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 tm-3-col-textbox">
-                                                <div class="text-xs-left tm-textbox tm-textbox-padding tm-bg-white-translucent tm-3-col-textbox-inner">
-                                                    <i class="fa fa-4x fa-pagelines tm-home-fa"></i>
-                                                    <h2 class="tm-text-title">欢迎访问MODAND web</h2>                                           
-                                                    <p class="tm-text"><a href="dock.html" target="_parent">更新日志</a></p>
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 tm-3-col-textbox">
-                                                <div class="text-xs-left tm-textbox tm-textbox-padding tm-bg-white-translucent tm-3-col-textbox-inner">
-                                                    <i class="fa fa-4x fa-bicycle tm-home-fa"></i>
-                                                    <h2 class="tm-text-title">文档与资源</h2>
-                                                    <p class="tm-text"><p class="tm-text"><a href="MODAND%20download/index.html" target="_parent">点击进入</a></p>
-                                                </div>          
-                                            </div>
-                                            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 tm-3-col-textbox">
-                                                <div class="text-xs-left tm-textbox tm-textbox-padding tm-bg-white-translucent tm-3-col-textbox-inner">
-                                                    <i class="fa fa-4x fa-plane tm-home-fa"></i>
-                                                    <h2 class="tm-text-title">友情链接</h2>
-                                                    <p class="tm-text"><p class="tm-text"><a href="https://nicrozoft.github.io" target="_parent">Nicrozoft</a>
-                                                    <p class="tm-text"><a href="https://ivbxdata.github.io/zh-cn/" target="_parent">IVBX Sever</a></p>
-                                                    <p class="tm-text"><a href="https://winbetauser.github.io" target="_parent">WinBetaUser的网站</a></p>
-                                                </div>          
-                                            </div>                                        
-                                    </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-
-                <!-- Page 3 Gallery Two -->
-                <li>                    
-                    <div class="cd-full-width">
-                        <div class="container-fluid js-tm-page-content" data-page-no="3" data-page-type="gallery">
-                            <div class="tm-img-gallery-container tm-img-gallery-container-2">
-                                <div class="tm-img-gallery gallery-two">
-                                <!-- Gallery Two pop up connected with JS code below -->
-                                    
-                                    <div class="tm-img-gallery-info-container">                                    
-                                        <h2 class="tm-text-title tm-gallery-title"><span class="tm-white">公告</span></h2>
-                                        <p class="tm-text"><span class="tm-white">Ennn...现在这个页面似乎没什么用啊</span>
-                                        </p>
-                                    </div>  
-                                </div>                                 
-                            </div>
-                        </div>                      
-                    </div>
-                </li>
-
-                <!-- Page 5 About -->
-                <li>
-                    <div class="cd-full-width">
-                        <div class="container-fluid js-tm-page-content tm-page-width" data-page-no="5">
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    <div class="tm-flex">
-                                        <div class="tm-bg-white-translucent text-xs-left tm-textbox tm-textbox-padding tm-white-box-margin-b">
-                                            <h2 class="tm-text-title">关于MODAND</h2>
-                                            <p class="tm-text">MODAND是由shiyimin(网名)在2022年时所创立2024改名为MODAND，它的含义是制作产品得融合兼并 不出问题且稳定<br>MODAND web的创建只是更方便整理并发布产品的非盈利网站</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    <div class="tm-flex">
-                                        <div class="tm-bg-white-translucent text-xs-left tm-textbox tm-2-col-textbox-2 tm-textbox-padding">
-                                            <h2 class="tm-text-title">关于我自己</h2>
-                                            <p class="tm-text">我是shiyimin(石一名)这个名字是我在某个游戏里摇骰子摇出来的我觉得非常不错就使用了，这不是我的真名请不要猜测。</br>个人爱玩植物大战僵尸和我的世界，然后就没有然后了哈哈</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>                        
-                        </div>              
-                    </div> <!-- .cd-full-width -->
-
-                </li>
-            </ul> <!-- .cd-hero-slider -->
-            
-            <footer class="tm-footer">
-                
-                <p class="tm-copyright-text">Copyright &copy; 2024-2025 MODAND studio 
-
-            </footer>
-                    
-        </div> <!-- .cd-hero -->
-        
-
-        <!-- Preloader, https://ihatetomatoes.net/create-custom-preloading-screen/ -->
-        <div id="loader-wrapper">
-            
-            <div id="loader"></div>
-            <div class="loader-section section-left"></div>
-            <div class="loader-section section-right"></div>
-
+            </div>
+    </div>
+  </header>
+  <!-- ***** Main Banner Area Start ***** -->
+  <div class="main-banner">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 offset-lg-1">
+          <div class="header-text">
+            <h2>静下心来，用心享受</h2>
+            <p>欢迎访问MODAND web</p>
+            <div class="buttons">
+              <div class="big-border-button">
+                <a href="MODAND%20download/index.html">进入下载页面</a>
+              </div>
+            </div>
+          </div>
         </div>
-        
-        <!-- load JS files -->
-        <script src="js/jquery-1.11.3.min.js"></script>         <!-- jQuery (https://jquery.com/download/) -->
-        <script src="https://www.atlasestateagents.co.uk/javascript/tether.min.js"></script> <!-- Tether for Bootstrap (http://stackoverflow.com/questions/34567939/how-to-fix-the-error-error-bootstrap-tooltips-require-tether-http-github-h) --> 
-        <script src="js/bootstrap.min.js"></script>             <!-- Bootstrap js (v4-alpha.getbootstrap.com/) -->
-        <script src="js/hero-slider-main.js"></script>          <!-- Hero slider (https://codyhouse.co/gem/hero-slider/) -->
-        <script src="js/jquery.magnific-popup.min.js"></script> <!-- Magnific popup (http://dimsemenov.com/plugins/magnific-popup/) -->
-        
-        <script>
+      </div>
+    </div>
+  </div>
+  <section class="pricing-plans">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="section-heading text-center">
+            <h6>关于我们</h6>
+            <h4>努力做好每件事 <em>喜欢一切美好的东西</em></h4>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="pricing-item">
+            <img src="assets/images/pricing-01.jpg" alt="">
+            <h4>MODAND studio</h4>
+            <ul class="first-plan">
+              <li>2022创立此组织（ZHEO）</li>
+              <li>2023改名为MODAND</li>
+              <li>它的含义是制作产品得融合兼并 不出问题且稳定<br>MODAND web的创建只是更方便整理并发布产品的非盈利网站</li>
+            </ul>
 
-            function adjustHeightOfPage(pageNo) {
+            <div class="border-button">
 
-                var offset = 80;
-                var pageContentHeight = 0;
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="pricing-item">
+            <img src="assets/images/pricing-02.jpg" alt="">
+            <h4>联系我？</h4>
+            <ul class="second-plan">
+            </ul>
+            <div class="border-button">
+              <a href="https://space.bilibili.com/3546609325443385?spm_id_from=333.40164.0.0">点击进入本人b站主页</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-                var pageType = $('div[data-page-no="' + pageNo + '"]').data("page-type");
+<footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <p>版权 © 2024-2026 <a href="#">MODAND studio</a> Co. Ltd. 最终解释权归属MODAND 网站框架由 <a title="CSS Templates" rel="sponsored" href="https://templatemo.com/page/1" target="_blank">TemplateMo </a>提供</p>
+        </div>
+      </div>
+    </div>
+</footer>
 
-                if( pageType != undefined && pageType == "gallery") {
-                    pageContentHeight = $(".cd-hero-slider li:nth-of-type(" + pageNo + ") .tm-img-gallery-container").height();
-                }
-                else {
-                    pageContentHeight = $(".cd-hero-slider li:nth-of-type(" + pageNo + ") .js-tm-page-content").height();
-                }
+  <!-- Scripts -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/js/isotope.min.js"></script>
+  <script src="assets/js/owl-carousel.js"></script>
+  <script src="assets/js/tabs.js"></script>
+  <script src="assets/js/popup.js"></script>
+  <script src="assets/js/custom.js"></script>
 
-                if($(window).width() >= 992) { offset = 120; }
-                else if($(window).width() < 480) { offset = 40; }
-               
-                // Get the page height
-                var totalPageHeight = 15 + $('.cd-slider-nav').height()
-                                        + pageContentHeight + offset
-                                        + $('.tm-footer').height();
+<!-- 夜间模式JS -->
+<script>
+const htmlRoot = document.documentElement;
+const toggleBtn = document.getElementById('themeToggle');
 
-                // Adjust layout based on page height and window height
-                if(totalPageHeight > $(window).height()) 
-                {
-                    $('.cd-hero-slider').addClass('small-screen');
-                    $('.cd-hero-slider li:nth-of-type(' + pageNo + ')').css("min-height", totalPageHeight + "px");
-                }
-                else 
-                {
-                    $('.cd-hero-slider').removeClass('small-screen');
-                    $('.cd-hero-slider li:nth-of-type(' + pageNo + ')').css("min-height", "100%");
-                }
-            }
+// 读取本地存储
+let lightMode = localStorage.getItem('theme') === 'light';
 
-            /*
-                Everything is loaded including images.
-            */
-            $(window).load(function(){
+function applyTheme(){
+    const textDom = toggleBtn.querySelector('.theme-text');
+    if(lightMode){
+        htmlRoot.classList.add('light-mode');
+        textDom.textContent = "明亮";
+    }else{
+        htmlRoot.classList.remove('light-mode');
+        textDom.textContent = "深夜";
+    }
+}
+applyTheme();
 
-                adjustHeightOfPage(1); // Adjust page height
-
-                /* Gallery One pop up
-                -----------------------------------------*/
-                $('.gallery-one').magnificPopup({
-                    delegate: 'a', // child items selector, by clicking on it popup will open
-                    type: 'image',
-                    gallery:{enabled:true}                
-                });
-				
-				/* Gallery Two pop up
-                -----------------------------------------*/
-				$('.gallery-two').magnificPopup({
-                    delegate: 'a',
-                    type: 'image',
-                    gallery:{enabled:true}                
-                });
-
-                /* Gallery Three pop up
-                -----------------------------------------*/
-                $('.gallery-three').magnificPopup({
-                    delegate: 'a',
-                    type: 'image',
-                    gallery:{enabled:true}                
-                });
-
-                /* Collapse menu after click 
-                -----------------------------------------*/
-                $('#tmNavbar a').click(function(){
-                    $('#tmNavbar').collapse('hide');
-
-                    adjustHeightOfPage($(this).data("no")); // Adjust page height       
-                });
-
-                /* Browser resized 
-                -----------------------------------------*/
-                $( window ).resize(function() {
-                    var currentPageNo = $(".cd-hero-slider li.selected .js-tm-page-content").data("page-no");
-                    
-                    // wait 3 seconds
-                    setTimeout(function() {
-                        adjustHeightOfPage( currentPageNo );
-                    }, 1000);
-                    
-                });
-        
-                // Remove preloader (https://ihatetomatoes.net/create-custom-preloading-screen/)
-                $('body').addClass('loaded');
-                           
-            });
-
-            /* Google map
-            ------------------------------------------------*/
-            var map = '';
-            var center;
-
-            function initialize() {
-                var mapOptions = {
-                    zoom: 15,
-                    center: new google.maps.LatLng(37.769725, -122.462154),
-                    scrollwheel: false
-                };
-            
-                map = new google.maps.Map(document.getElementById('google-map'),  mapOptions);
-
-                google.maps.event.addDomListener(map, 'idle', function() {
-                  calculateCenter();
-                });
-            
-                google.maps.event.addDomListener(window, 'resize', function() {
-                  map.setCenter(center);
-                });
-            }
-
-            function calculateCenter() {
-                center = map.getCenter();
-            }
-
-            function loadGoogleMap(){
-                var script = document.createElement('script');
-                script.type = 'text/javascript';
-                script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&' + 'callback=initialize';
-                document.body.appendChild(script);
-            }
-        
-            // DOM is ready
-            $(function() {                
-                loadGoogleMap(); // Google Map
-            });
-
-        </script>            
+//点击切换
+toggleBtn.onclick = ()=>{
+    lightMode = !lightMode;
+    localStorage.setItem('theme', lightMode ? 'light' : 'dark');
+    applyTheme();
+}
+</script>
 
 </body>
 </html>

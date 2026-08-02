@@ -1,40 +1,19 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>文件下载</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>文件下载</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<!-- 引入 Open Sans 字体 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 
-    <link rel="shortcut icon" type="img" href="img/logo.ico">
+<link rel="shortcut icon" type="image/x-icon" href="img/logo.ico">
 <style type="text/css">
-      @font-face {
-        font-family: 'Microzoft YaHel';
-        font-weight: normal;
-        font-style: normal;
-        src: local('Roboto'), local('Roboto-Regular'), url('template/fonts/Roboto-Regular.woff') format('woff');
-      }
-      @font-face {
-        font-family: 'Roboto';
-        font-weight: bold;
-        font-style: normal;
-        src: url('template/fonts/Roboto-Bold.woff') format('woff');
-        src: local('Roboto Bold'), local('Roboto-Bold'), url('template/fonts/Roboto-Bold.woff') format('woff');        
-      }
-      @font-face {
-        font-family: 'Oswald';
-        font-weight: normal;
-        font-style: normal;
-        src: url('template/fonts/Oswald-Regular.woff') format('woff');
-      }
-      @font-face {
-        font-family: 'Oswald';
-        font-weight: bold;
-        font-style: normal;
-        src: url('template/fonts/Oswald-Medium.woff') format('woff');
-      }
       body {
-        font-family:'Roboto', arial, helvetica, sans-serif;
+        font-family:'Open Sans', sans-serif;
         font-weight: normal;
         font-style: normal;
         font-size: medium;
@@ -44,7 +23,7 @@
         color: #5168CF; 
         text-decoration: none; 
       }    
-      h2 {
+      h2,h3 {
         margin-bottom: 0.3em
       }
       .tableRoot {
@@ -53,7 +32,6 @@
         background-color: white; 
         box-shadow: 0px 0px 20px #CCCCCC;
         border: 0px solid #808080;
-        /* Use border-spacing instead of border-collapse, otherwise IE doesn't show the shadow */
         border-spacing:0;
       }
       .header {
@@ -61,7 +39,7 @@
         padding-bottom: 0.32em;
       }
       .headerTitle {
-        font-family:'Oswald', arial, helvetica, sans-serif;
+        font-family:'Open Sans', sans-serif;
         font-size:300%; 
         font-weight:bold; 
         padding-left: 20px;
@@ -148,7 +126,6 @@
       }
       .downloadLine {
       }
-      /* Columns */
       .downloadLine .colFile {
         width: 270px;
         padding-left: 10px;
@@ -178,11 +155,9 @@
         text-align: right;
         padding-right: 10px;
       }
-      /* Preview */
       .downloadLinePreview {
         background-color: #FFF6E3
       }
-      /* Main */
       .downloadLineMain:first-child {
         background-color: #F0F3FF
       }
@@ -208,13 +183,13 @@
         height: 35px;
       }
       .scaleNearest {  
-        image-rendering:optimizeSpeed;             /* Legal fallback                 */
-        image-rendering:-moz-crisp-edges;          /* Firefox                        */
-        image-rendering:-o-crisp-edges;            /* Opera                          */
-        image-rendering:-webkit-optimize-contrast; /* Chrome (and eventually Safari) */
-        image-rendering:optimize-contrast;         /* CSS3 Proposed                  */
-        -ms-interpolation-mode:nearest-neighbor;   /* IE8+                           */
-        image-rendering:pixelated;                 /* Chrome 41+, Firefox            */
+        image-rendering:optimizeSpeed;
+        image-rendering:-moz-crisp-edges;
+        image-rendering:-o-crisp-edges;
+        image-rendering:-webkit-optimize-contrast;
+        image-rendering:optimize-contrast;
+        -ms-interpolation-mode:nearest-neighbor;
+        image-rendering:pixelated;
       }
       .tableData {
         border-collapse: collapse;
@@ -288,7 +263,7 @@
       }
       input,
       select {
-        font-family:'Roboto', arial, helvetica, sans-serif;
+        font-family:'Open Sans', sans-serif;
         font-weight: normal;
         font-style: normal;
         font-size: medium;
@@ -305,15 +280,13 @@
       }
     </style>
 </head>
-  <body>
+<body>
     <table class="tableRoot">
       <tr>
         <td class="header">
-          <!-- Title -->
           <span class="headerTitle">
             <a href=""></a>
           </span>
-          <!-- Navigation -->
           <span class="headerNav">
             <a href="index.html">返回</a>
           </span>
@@ -321,7 +294,6 @@
       </tr>
       <tr>
         <td class="content">
-          <!-- Content -->
 <span class="downloads">
           <script type='text/javascript'>
             function showSpoiler(elemId, linkId, hideLink)
@@ -348,7 +320,6 @@
           </script>
           
                     <h3>Longhorn 工具</h3>
-            <!-- Previews -->
               <a class="spoilerLink" id="link3" href="javascript:showSpoiler('preview3', 'link3');">+ 查看所有</a>
                 <div id="preview3" style='position: absolute; visibility: hidden; opacity: 0; transition: opacity 0.5s;'>
                   <table class='downloadTable'>
@@ -392,7 +363,6 @@
                   </div>
 
           <h3>Longhorn 主题</h3>
-            <!-- Previews -->
               <a class="spoilerLink" id="link1" href="javascript:showSpoiler('preview1', 'link1');">+ 查看所有</a>
                 <div id="preview1" style='position: absolute; visibility: hidden; opacity: 0; transition: opacity 0.5s;'>
                   <table class='downloadTable'>
@@ -424,7 +394,6 @@
                 </div>
 
                        <h3>Boot Camp驱动</h3>
-            <!-- Previews -->
               <a class="spoilerLink" id="link2" href="javascript:showSpoiler('preview2', 'link2');">+ 查看所有</a>
                 <div id="preview2" style='position: absolute; visibility: hidden; opacity: 0; transition: opacity 0.5s;'>
                   <table class='downloadTable'>
@@ -443,7 +412,6 @@
                     </table>
                  </div>
                         <h3>其他</h3>
-            <!-- Previews -->
               <a class="spoilerLink" id="link4" href="javascript:showSpoiler('preview4', 'link4');">+ 查看所有</a>
                 <div id="preview4" style='position: absolute; visibility: hidden; opacity: 0; transition: opacity 0.5s;'>
                   <table class='downloadTable'>
@@ -461,3 +429,9 @@
                       </tr>                   
                     </table>
                 </div>
+</span>
+        </td>
+      </tr>
+    </table>
+</body>
+</html>

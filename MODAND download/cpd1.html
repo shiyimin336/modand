@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="fontawesome/css/all.min.css">
     <link rel="stylesheet" href="css/templatemo-style.css">
-    <link rel="shortcut icon" type="img" href="img/logo.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="img/logo.ico">
 <!--
     
 TemplateMo 556 Catalog-Z模版链接
@@ -15,45 +15,96 @@ TemplateMo 556 Catalog-Z模版链接
 https://templatemo.com/tm-556-catalog-z
 
 -->
+    <style>
+        /* 全局过渡动画 */
+        html, body, .navbar, .tm-bg-gray, .tm-video-details{
+            transition: background-color 0.35s ease, color 0.35s ease !important;
+        }
+
+        /* 导航栏主题切换按钮样式 */
+        .theme-btn{
+            cursor: pointer;
+            font-size: 1.2rem;
+            padding: 8px 12px !important;
+            display:flex;
+            align-items:center;
+        }
+        .theme-btn:hover{
+            color: #00ccff;
+        }
+
+        /* ========== 深色模式变量与样式 ========== */
+        html.darkmode{
+            --bg-main:#171717;
+            --bg-card:#242424;
+            --bg-nav:#111111;
+            --text-normal:#dddddd;
+            --text-primary:#63c8ff;
+            --bg-footer:#101010;
+        }
+
+        html.darkmode body{
+            background-color: var(--bg-main) !important;
+            color: var(--text-normal) !important;
+        }
+        html.darkmode .navbar{
+            background-color: var(--bg-nav) !important;
+        }
+        html.darkmode .tm-bg-gray{
+            background-color: var(--bg-card) !important;
+        }
+        html.darkmode .tm-text-gray-dark{
+            color:#e0e0e0 !important;
+        }
+        html.darkmode .tm-text-gray{
+            color:#bbbbbb !important;
+        }
+        html.darkmode .tm-text-primary{
+            color:var(--text-primary) !important;
+        }
+        html.darkmode .tm-footer{
+            background-color: var(--bg-footer) !important;
+        }
+    </style>
 </head>
 <body>
     <!-- Page Loader -->
     <div id="loader-wrapper">
         <div id="loader"></div>
-
         <div class="loader-section section-left"></div>
         <div class="loader-section section-right"></div>
-
     </div>
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.html">
                 <i class=""></i>
-
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fas fa-bars"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link nav-link-1 active" aria-current="page" href="index.html">文档</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link nav-link-2" href="indexD.html">资源</a>
-                </li>
-            </ul>
+                <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-1 active" aria-current="page" href="index.html">文档</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-2" href="indexD.html">资源</a>
+                    </li>
+                    <!-- 黑夜模式切换图标 -->
+                    <li class="nav-item theme-btn" id="themeToggle">
+                        <i class="fas fa-moon"></i>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
 
     <div class="tm-hero d-flex justify-content-center align-items-center" data-parallax="scroll" data-image-src="img/hero.jpg">
-        </form>
     </div>
 
     <div class="container-fluid tm-container-content tm-mt-60">
         <div class="row mb-4">
-            <h2 class="col-12 tm-text-primary"><p align="center">MODAND网站正式开放！</p></h2>
+            <h2 class="col-12 tm-text-primary text-center">MODAND网站正式开放！</h2>
         </div>
         <div class="row tm-mb-90">            
             <div class="col-xl-8 col-lg-7 col-md-6 col-sm-12">
@@ -68,23 +119,10 @@ https://templatemo.com/tm-556-catalog-z
                         <div class="mr-4 mb-2">
                             <span class="tm-text-gray-dark">鸣谢</span><span class="tm-text-primary">Nicrozoft</span>
                         </div>
-                        <div class="mr-4 mb-2">
-                            <span class="tm-text-gray-dark">  </span><span class="tm-text-primary">  </span>
-                        </div>
                     </div>
-                    <div class="mb-4">
-                        <h3 class="tm-text-gray-dark mb-3"></h3>
-                        <p></p>
-                                </div>
-                <div class="text-center mb-5">
-                            </h5>
-             <p> </p>
-            <h1 class="tm-bg-gray tm-video-details">
                 </div>
             </div>
-            </div>         
-            </div>            
-        </div>
+        </div>            
     </div> <!-- container-fluid, tm-container-content -->
 
     <footer class="tm-bg-gray pt-5 pb-3 tm-text-gray tm-footer">
@@ -110,7 +148,7 @@ https://templatemo.com/tm-556-catalog-z
             </div>
             <div class="row">
                 <div class="col-lg-8 col-md-7 col-12 px-5 mb-3">
-                    MODAND 2024-2025
+                    MODAND 2024-2026
                 </div>
                 <div class="col-lg-4 col-md-5 col-12 px-5 text-right">
                     <a href="index.html" class="tm-text-gray" rel="sponsored" target="_parent">返回至文档与资源</a>
@@ -124,6 +162,32 @@ https://templatemo.com/tm-556-catalog-z
         $(window).on("load", function() {
             $('body').addClass('loaded');
         });
+
+        // ==================== 黑夜模式逻辑 ====================
+        const htmlTag = document.documentElement;
+        const toggleBtn = document.getElementById('themeToggle');
+        const icon = toggleBtn.querySelector('i');
+        //读取本地存储
+        let darkStatus = localStorage.getItem('siteTheme') === 'dark';
+
+        function updateTheme(){
+            if(darkStatus){
+                htmlTag.classList.add('darkmode');
+                icon.className = 'fas fa-sun';
+            }else{
+                htmlTag.classList.remove('darkmode');
+                icon.className = 'fas fa-moon';
+            }
+        }
+        //初始化加载
+        updateTheme();
+
+        //点击切换
+        toggleBtn.onclick = function(){
+            darkStatus = !darkStatus;
+            localStorage.setItem('siteTheme', darkStatus ? 'dark' : 'light');
+            updateTheme();
+        }
     </script>
 </body>
 </html>

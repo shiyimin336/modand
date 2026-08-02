@@ -1,1 +1,392 @@
- 暂时没有更新日志
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>更新日志</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<style type="text/css">
+      @font-face {
+        font-family: 'Roboto';
+        font-weight: normal;
+        font-style: normal;
+        src: local('Roboto'), local('Roboto-Regular'), url('template/fonts/Roboto-Regular.woff') format('woff');
+      }
+      @font-face {
+        font-family: 'Roboto';
+        font-weight: bold;
+        font-style: normal;
+        src: url('template/fonts/Roboto-Bold.woff') format('woff');
+        src: local('Roboto Bold'), local('Roboto-Bold'), url('template/fonts/Roboto-Bold.woff') format('woff');        
+      }
+      @font-face {
+        font-family: 'Oswald';
+        font-weight: normal;
+        font-style: normal;
+        src: url('template/fonts/Oswald-Regular.woff') format('woff');
+      }
+      @font-face {
+        font-family: 'Oswald';
+        font-weight: bold;
+        font-style: normal;
+        src: url('template/fonts/Oswald-Medium.woff') format('woff');
+      }
+      body {
+        font-family:'Roboto', arial, helvetica, sans-serif;
+        font-weight: normal;
+        font-style: normal;
+        font-size: medium;
+        background-image:url('images/snow64b.gif');
+      }
+      A {
+        color: #5168CF; 
+        text-decoration: none; 
+      }    
+      h2 {
+        margin-bottom: 0.3em
+      }
+      .tableRoot {
+        margin: 0 auto; 
+        min-width: 850px; 
+        background-color: white; 
+        box-shadow: 0px 0px 20px #CCCCCC;
+        border: 0px solid #808080;
+        /* Use border-spacing instead of border-collapse, otherwise IE doesn't show the shadow */
+        border-spacing:0;
+      }
+      .header {
+        background-color: #313E7C;
+        padding-bottom: 0.32em;
+      }
+      .headerTitle {
+        font-family:'Oswald', arial, helvetica, sans-serif;
+        font-size:300%; 
+        font-weight:bold; 
+        padding-left: 20px;
+        padding-right: 40px;
+        line-height: 1.3em;
+      }
+      .headerTitle A {
+        color: #F0F3FF; 
+        text-decoration: none;
+      }
+      .headerNav {
+        text-align: left; 
+        background-color: #313E7C;
+        border-width: 0px;
+        margin-left: 0px
+      }
+      .headerNav A {
+        color: #F0F3FF; 
+        text-decoration: none;
+        padding-left: 1em;
+        padding-right: 1em;
+        padding-top: 0.3em;
+        padding-bottom: 0.3em;
+      }
+      .headerNav A:hover {
+        background-color: #6974A3;
+        transition: .25s;
+        text-decoration: none;
+      }
+      .content {
+        padding: 18px;
+        padding-top: 10px; 
+        text-align: left; 
+        text-indent: 0px; 
+        margin: 10px;
+      }
+      .content A:hover {
+      }
+      .footer {
+        font-size:small; 
+        text-align: right;  
+        background-color: #313E7C; 
+        padding-left: 0.3em;
+        padding-right: 0.3em;
+        padding-top: 0.5em;
+        padding-bottom: 0.5em;
+      }
+      .footerIcon {
+      }
+      .footerIcon IMG {
+        margin-bottom: -0.3em;
+        margin-right: 0.7em;
+        width: 1.2em;
+        height: 1.2em;
+      }
+      .footerText A {
+        text-decoration: none;
+        padding-left: 0.7em; 
+        padding-right: 0.7em;
+        padding-top: 0.2em;
+        padding-bottom: 0.2em;
+        color: #F0F3FF;
+      }
+      .footerText A:hover {
+        text-decoration: none;
+        background-color: #6974A3;
+        transition: .25s;
+        color: #F0F3FF;
+      }
+      .downloads {
+        width: 100%
+      }
+      .spoilerLink {
+        line-height: 200%;
+      }
+      .showAll {
+        text-align: center;
+        margin-top: 2em;
+      }
+      .downloadTable {
+        border-collapse: collapse;
+        width: auto;
+        line-height: 200%;
+      }
+      .downloadLine {
+      }
+      /* Columns */
+      .downloadLine .colFile {
+        width: 270px;
+        padding-left: 10px;
+      }
+      .downloadLine .colDownload A,
+      .downloadButton A {
+        width: 80px;
+        text-align: center;
+        padding-left: 1em;
+        padding-right: 1em;
+        padding-top: 0.2em;
+        padding-bottom: 0.2em;
+        border: 1px solid #5168CF;
+      }
+      .downloadLine .colMirror {
+        width: 100px; 
+        text-align: center;
+      }
+      .downloadLine .colChangelog {
+        width: 110px;
+      }
+      .downloadLine .colForge {
+        width: 115px;
+      }
+      .downloadLine .colDate {
+        width: 80px;
+        text-align: right;
+        padding-right: 10px;
+      }
+      /* Preview */
+      .downloadLinePreview {
+        background-color: #FFF6E3
+      }
+      /* Main */
+      .downloadLineMain:first-child {
+        background-color: #F0F3FF
+      }
+      .downloadLineMain:first-child .colDownload  A, 
+      .downloadButton A{
+        font-weight: normal;
+        color: white;
+        background-color: #313E7C;
+        border: 1px solid #313E7C;
+      }
+      .downloadLineMain:first-child .colDownload A:hover,
+      .downloadButton A:hover{
+        background-color: #6974A3;
+        transition: .25s;
+      }
+      LI STRONG {
+        line-height: 200%;
+      }
+      .tableDownload {
+        margin: 0 auto; 
+      }
+      .tableDonate TR {
+        height: 35px;
+      }
+      .scaleNearest {  
+        image-rendering:optimizeSpeed;             /* Legal fallback                 */
+        image-rendering:-moz-crisp-edges;          /* Firefox                        */
+        image-rendering:-o-crisp-edges;            /* Opera                          */
+        image-rendering:-webkit-optimize-contrast; /* Chrome (and eventually Safari) */
+        image-rendering:optimize-contrast;         /* CSS3 Proposed                  */
+        -ms-interpolation-mode:nearest-neighbor;   /* IE8+                           */
+        image-rendering:pixelated;                 /* Chrome 41+, Firefox            */
+      }
+      .tableData {
+        border-collapse: collapse;
+      }
+      .tableData th {
+        color: #F0F3FF;
+        background-color: #313E7C;
+        font-weight: normal;
+      }
+      .tableData, .tableData th, .tableData td {
+        border: 0px solid black;
+      }
+      .tableData th, .tableData td {
+        padding-left:10px;
+        padding-right:10px;
+        padding-top:5px;
+        padding-bottom:5px;
+      }
+      .tableDataDis {
+        background-color: #DCDCDC
+      }
+      .tableDataIcon {
+        width: 1.5em;
+        height: 1.5em;
+      }
+      .tableDataCape {
+        max-height: 44px;
+      }
+      .tableDataCentered {
+        text-align: center;
+      }
+      .tableBanner {
+        width: 100%;
+        padding: 8px;
+      }
+      .tableBanner TR {
+        text-align: center;
+        margin: 0.3em;
+      }
+      .tableBanner TD {
+        padding-top: 1em;
+      }
+      .tableBanner IMG {
+        border: 1px solid #f0f0f0;
+      }
+      .tableBanner TD * {
+        margin: 0.3em;
+      }
+      .tableBanners TR TD {
+        padding: 9px;
+        padding-right: 8px;
+      }
+      .tableBanners IMG {
+        border: 1px solid #f0f0f0;
+      }
+      .bannerSelTable {
+        width: 100%;
+      }
+      .bannerSelUser {
+        text-align: right;
+      }
+      .bannerNav {
+        text-align: center;
+      }
+      .bannerNav * {
+        margin: 0.3em;
+      }
+      TD .tableDataEditable {
+        background-color: #FFF6E3;
+        border: 2px solid transparent;
+      }
+      input,
+      select {
+        font-family:'Roboto', arial, helvetica, sans-serif;
+        font-weight: normal;
+        font-style: normal;
+        font-size: medium;
+        padding: 2px;
+      }
+      input[type=submit] {
+        padding-left: 1em;
+        padding-right: 1em;
+        padding-top: 0.2em;
+        padding-bottom: 0.2em;
+      }
+      input[type=checkbox] {
+        transform : scale(1.3);
+      }
+    </style>
+</head>
+  <body>
+    <table class="tableRoot">
+      <tr>
+        <td class="header">
+          <!-- Title -->
+          <span class="headerTitle">
+            <a href="">更新日志</a>
+          </span>
+          <!-- Navigation -->
+          <span class="headerNav">
+            <a href="index.html">返回主站</a>
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <td class="content">
+          <!-- update -->
+    <h3>web2.0</h3>
+    <ul class='bbc'>
+      <li>
+        <strong class='bbc'>更新内容</strong><br>
+        - 启用公告<br>
+        - 今天吃啥啊，是啊吃啥啊<br>
+        - 下载页大更新，可挑选下载源<br>
+    </ul>
+<p>网站更新时间：2026年7月31日 12:00</p>
+    <h3>web1.2</h3>
+    <ul class='bbc'>
+      <li>
+        <strong class='bbc'>更新内容</strong><br>
+        - 完善黑名单<br>
+        - 更新友情链接<br>
+    </ul>
+
+<p>网站更新时间：2025年02月28日 22:33</p>
+    <h3>web1.1</h3>
+    <ul class='bbc'>
+      <li>
+        <strong class='bbc'>更新内容</strong><br>
+        - <br>
+        - 今天吃啥啊，是啊吃啥啊<br>
+        - 下载页大更新，可挑选下载源<br>
+    </ul>
+
+<p>网站更新时间：2025年02月21日 20:03</p>
+    <h3>web1.0(重大更新)</h3>
+    <ul class='bbc'>
+      <li>
+        <strong class='bbc'>更新内容</strong><br>
+        - MODAND web1.0所有更新内容将在本周完成更新<br>
+        - 主站将上传公告(每月一换)并且重新更改部分文案 文档页面 更新黑名单，将某些人的罪行和所有账户整理出来比如溺尸等人<br>
+        - 资源页面 Longhorn专辑更新，此专辑大部分的文案和图片均来自betaworld。<br>我只将它简单化，注册表和其他的内容我都会提前准备好并且更改成iso镜像方便使用<br>
+    </ul>
+<p>网站更新时间：2025年02月15日 18:41</p>
+    <h3>web beta 1.3</h3>
+    <ul class='bbc'>
+      <li>
+        <strong class='bbc'>更新内容</strong><br>
+        - 添加部分Vista测试版<br>
+        - 加回部分动画<br>
+        - 网站新加图标<br>
+    </ul>
+
+<p>网站更新时间：2025年02月09日 18:49</p>
+    <h3>web beta 1.2</h3>
+    <ul class='bbc'>
+      <li>
+        <strong class='bbc'>更新内容</strong><br>
+        - MODAND web beta1.2 加载动画去除，访问速度更快。<br>字体、大小、行距有误的地方已经修改与去除。 <br>因为网络原因，我暂时没法上传到网络上。还是请大家多多理解，谢谢<br>
+    </ul>
+
+<p>网站更新时间：2025年02月05日 22:42</p>
+    <h3>web beta1.1</h3>
+    <ul class='bbc'>
+      <li>
+        <strong class='bbc'>更新内容</strong><br>
+        - 首先我得对大家说一声抱歉:由于电脑系统原因（电脑里装着win7,win10bootcamp不支持升级安装所以会在虚拟机上安装可能会耽误几天）<br>我无法安装GitHub disktop这个软件。这里就把文档的第一篇文档截图发在这了，感谢@Nicrozoft 的大力支持与帮助！<br>
+        - MODAND web1.1将发布之前制作的vista仿5219和Nicrozoft私发给我的一个有趣的视频（更新较慢，多多理解，谢谢大家）<br> 主站之后只做公告上的一些更新并且网站整体可能访问较慢，再次感谢大家的理解<br>
+    </ul>
+
+<p>网站更新时间：2025年01月27日 15:24</p>
+    <h3>web beta1.0</h3>
+    <ul class='bbc'>
+      <li>
+        <strong class='bbc'>更新内容</strong><br>
+        - 下载页面重新制作完成<br>
+    </ul>
+
+</html>

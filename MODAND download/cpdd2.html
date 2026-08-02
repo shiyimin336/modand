@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="fontawesome/css/all.min.css">
     <link rel="stylesheet" href="css/templatemo-style.css">
-    <link rel="shortcut icon" type="img" href="img/logo.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="img/logo.ico">
 <!--
     
 TemplateMo 556 Catalog-Z模版链接
@@ -15,45 +15,92 @@ TemplateMo 556 Catalog-Z模版链接
 https://templatemo.com/tm-556-catalog-z
 
 -->
+    <style>
+        html, body, .navbar, .tm-bg-gray, .tm-video-details {
+            transition: background-color 0.35s ease, color 0.35s ease !important;
+        }
+        /* 切换按钮样式 */
+        .theme-btn{
+            cursor: pointer;
+            font-size: 1.2rem;
+            padding: 8px 12px !important;
+            display:flex;
+            align-items:center;
+        }
+        .theme-btn:hover{
+            color:#00ccff;
+        }
+        /* 全站统一深色配色 */
+        html.darkmode{
+            --bg-main:#171717;
+            --bg-card:#242424;
+            --bg-nav:#111111;
+            --text-normal:#dddddd;
+            --text-primary:#63c8ff;
+            --bg-footer:#101010;
+        }
+        html.darkmode body{
+            background-color: var(--bg-main) !important;
+            color: var(--text-normal) !important;
+        }
+        html.darkmode .navbar{
+            background-color: var(--bg-nav) !important;
+        }
+        html.darkmode .tm-bg-gray{
+            background-color: var(--bg-card) !important;
+        }
+        html.darkmode .tm-text-gray-dark{
+            color:#e0e0e0 !important;
+        }
+        html.darkmode .tm-text-gray{
+            color:#bbbbbb !important;
+        }
+        html.darkmode .tm-text-primary{
+            color:var(--text-primary) !important;
+        }
+        html.darkmode .tm-footer{
+            background-color: var(--bg-footer) !important;
+        }
+    </style>
 </head>
 <body>
     <!-- Page Loader -->
     <div id="loader-wrapper">
         <div id="loader"></div>
-
         <div class="loader-section section-left"></div>
         <div class="loader-section section-right"></div>
-
     </div>
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.html">
                 <i class=""></i>
-
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fas fa-bars"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link nav-link-1 active" aria-current="page" href="index.html">文档</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link nav-link-2" href="indexD.html">资源</a>
-                </li>
-            </ul>
+                <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-1 active" aria-current="page" href="index.html">文档</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-2" href="indexD.html">资源</a>
+                    </li>
+                    <!-- 明暗切换按钮 -->
+                    <li class="nav-item theme-btn" id="themeToggle">
+                        <i class="fas fa-moon"></i>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
 
     <div class="tm-hero d-flex justify-content-center align-items-center" data-parallax="scroll" data-image-src="img/hero.jpg">
-        </form>
     </div>
 
     <div class="container-fluid tm-container-content tm-mt-60">
         <div class="row mb-4">
-               <h2 class="col-12 tm-text-primary"><p align="center">两小儿辩尸</p></h2>
+               <h2 class="col-12 tm-text-primary text-center">两小儿辩尸</h2>
         </div>
         <div class="row tm-mb-90">            
             <div class="col-xl-8 col-lg-7 col-md-6 col-sm-12">
@@ -61,7 +108,7 @@ https://templatemo.com/tm-556-catalog-z
             </div>
             <div class="col-xl-4 col-lg-5 col-md-6 col-sm-12">
                 <div class="tm-bg-gray tm-video-details">
-                <p class="mb-4"> 
+                    <p class="mb-4"> 
 此视频由nicrozoft制作，尊重原创！
 <br>我们被溺尸侵权、侮辱长达5个月，它自从去年3 月开始侵权，多次盗视频，辱骂多位科技区 UP，屡次警告无果，甚至它的头像也是侵权。我们决定对其重拳出击！
 <br>1.溺尸的网络名称：<br>激活 windows 只是溺尸<br>Wihdous7 惡魔暗影版 <br>黑暗赛罗-安全性
@@ -75,17 +122,12 @@ https://templatemo.com/tm-556-catalog-z
 <br>3494356298238662
 <br>MS4wLjABAAAAqssGzQ7dmA6XR2IdPdEfbGrMXBWkCelF4g<br>9TLCZO1pk
 <br>S4wLjABAAAAXG_JDc_t0yD0sYTIAsqWvN6z6dRU99ZXEz<br>shSIvVwOE（冒充Nicrozoft）
-                        </p>
-                    <div class="text-center mb-5">
-                    </div>
-                        <div class="mb-4 d-flex flex-wrap">
-                        <div class="mr-4 mb-2">
+                    </p>
                     <div class="mb-4">
                         <h3 class="tm-text-gray-dark mb-3"></h3>
                         <p>应作者要求不提供下载链接</p>
                     </div>
                 </div>
-            </div>
             </div>              
         </div>
     </div> <!-- container-fluid, tm-container-content -->
@@ -107,14 +149,14 @@ https://templatemo.com/tm-556-catalog-z
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6 col-12 px-5 mb-5">
-                    <ul class="tm-social-links d-flex justify-content-end pl-0 mb-5">
+                    <ul class="tm-social-links d-flex justify-content-end pl-0 mb-5"></ul>
                     <a href="#" class="tm-text-gray text-right d-block mb-2">  </a>
                     <a href="#" class="tm-text-gray text-right d-block">  </a>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-8 col-md-7 col-12 px-5 mb-3">
-                    MODAND 2024-2025
+                    MODAND 2024-2026
                 </div>
                 <div class="col-lg-4 col-md-5 col-12 px-5 text-right">
                      <a href="index.html" class="tm-text-gray" rel="sponsored" target="_parent">返回至文档与资源</a>
@@ -128,6 +170,29 @@ https://templatemo.com/tm-556-catalog-z
         $(window).on("load", function() {
             $('body').addClass('loaded');
         });
+
+        // 全站统一明暗模式
+        const htmlTag = document.documentElement;
+        const toggleBtn = document.getElementById('themeToggle');
+        const icon = toggleBtn.querySelector('i');
+        let darkStatus = localStorage.getItem('siteTheme') === 'dark';
+
+        function updateTheme(){
+            if(darkStatus){
+                htmlTag.classList.add('darkmode');
+                icon.className = 'fas fa-sun';
+            }else{
+                htmlTag.classList.remove('darkmode');
+                icon.className = 'fas fa-moon';
+            }
+        }
+        updateTheme();
+
+        toggleBtn.onclick = function(){
+            darkStatus = !darkStatus;
+            localStorage.setItem('siteTheme', darkStatus ? 'dark' : 'light');
+            updateTheme();
+        }
     </script>
 </body>
 </html>
