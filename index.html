@@ -8,8 +8,8 @@
 
     <title>MODAND web</title>
 
-    <!-- 国内可用思源黑体（替换谷歌字体） -->
-    <link rel="stylesheet" href="https://fonts.font.im/css?family=Noto+Sans+SC:300,400,500,700">
+    <!-- 引入Open Sans（细字重 300 400 500） -->
+    <link rel="stylesheet" href="https://fonts.font.im/css?family=Open+Sans:300,400,500">
     <!-- 在线FontAwesome图标CDN -->
     <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -29,26 +29,15 @@ https://templatemo.com/tm-576-snapx-photography
 
     <!-- =========【重点！自定义样式放在所有css后面】========= -->
     <style>
-/* ==========全局字体设置========== */
+/* ==========全局字体设置【Open Sans 纤细字体】========== */
 html, body {
-    font-family: "Noto Sans SC", sans-serif !important;
+    font-family: "Open Sans", sans-serif !important;
+    font-weight: 300 !important; /* 全局细体 */
     transition: background 0.35s ease, color 0.35s ease;
 }
 h1,h2,h3,h4,h5,h6,.header-text h2{
-    font-family: "Noto Sans SC", sans-serif !important;
-}
-
-/* ========== 明暗切换文字按钮样式 ========== */
-.theme-switch {
-    color:#fff;
-    cursor: pointer;
-    padding:6px 10px;
-}
-.theme-switch .theme-text{
-    font-size:15px;
-}
-.theme-switch:hover{
-    color:#70b8ff;
+    font-family: "Open Sans", sans-serif !important;
+    font-weight: 400 !important; /*标题稍重一点，不发虚 */
 }
 
 /* ============= 统一顶栏、下拉菜单、页脚配色【深色默认】 ============= */
@@ -60,6 +49,7 @@ h1,h2,h3,h4,h5,h6,.header-text h2{
 }
 .main-nav .nav > li > a {
     color: #ffffff !important;
+    font-weight: 400;
 }
 .main-nav .nav > li > a:hover,
 .main-nav .nav > li > a.active {
@@ -70,6 +60,7 @@ h1,h2,h3,h4,h5,h6,.header-text h2{
 }
 .sub-menu li a {
     color: #dddddd !important;
+    font-weight: 300;
 }
 .sub-menu li a:hover {
     color: #70b8ff !important;
@@ -81,6 +72,7 @@ footer {
 }
 footer p {
     color: #ccc !important;
+    font-weight:300;
 }
 footer p a {
     color: #70b8ff !important;
@@ -162,9 +154,6 @@ html.light-mode .pricing-item h4,
 html.light-mode .pricing-item li{
     color:#222 !important;
 }
-html.light-mode .theme-switch{
-    color:#222;
-}
     </style>
 
 </head>
@@ -192,10 +181,7 @@ html.light-mode .theme-switch{
                                 <li><a href="https://rfhs0.github.io/">IVBX server</a></li>
                             </ul>
                         </li>
-                        <!-- 明暗文字切换 -->
-                        <li class="theme-switch" id="themeToggle">
-                            <span class="theme-text">深夜</span>
-                        </li>
+                        <!-- 【已删除明暗切换按钮】 -->
                     </ul>
                     <!-- ***** Menu End ***** -->
                 </nav>
@@ -278,32 +264,46 @@ html.light-mode .theme-switch{
   <script src="assets/js/popup.js"></script>
   <script src="assets/js/custom.js"></script>
 
-<!-- 夜间模式JS -->
+<!-- 跟随系统明暗模式JS（无按钮，自动检测） -->
 <script>
 const htmlRoot = document.documentElement;
-const toggleBtn = document.getElementById('themeToggle');
+// 系统媒体查询监听
+const systemMedia = window.matchMedia('(prefers-color-scheme: light)');
 
-// 读取本地存储
-let lightMode = localStorage.getItem('theme') === 'light';
+// 获取本地存储的用户偏好：light / dark / null（未手动设置）
+let userPref = localStorage.getItem('theme');
 
-function applyTheme(){
-    const textDom = toggleBtn.querySelector('.theme-text');
-    if(lightMode){
+// 应用主题函数
+function applyTheme(isLight) {
+    if(isLight){
         htmlRoot.classList.add('light-mode');
-        textDom.textContent = "明亮";
     }else{
         htmlRoot.classList.remove('light-mode');
-        textDom.textContent = "深夜";
     }
 }
-applyTheme();
 
-//点击切换
-toggleBtn.onclick = ()=>{
-    lightMode = !lightMode;
-    localStorage.setItem('theme', lightMode ? 'light' : 'dark');
-    applyTheme();
+// 判断使用用户设置 还是跟随系统
+function refreshTheme(){
+    if(userPref === 'light'){
+        applyTheme(true);
+    }else if(userPref === 'dark'){
+        applyTheme(false);
+    }else{
+        // 无用户选择，跟随系统
+        applyTheme(systemMedia.matches);
+    }
 }
+
+// 初始加载执行
+refreshTheme();
+
+// 监听操作系统明暗切换（实时同步）
+systemMedia.addEventListener('change', ()=>{
+    // 只有用户没有手动设置主题时，才跟随系统变化
+    if(userPref === null){
+        refreshTheme();
+    }
+});
 </script>
 
 </body>
